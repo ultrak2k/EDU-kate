@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerInput))]
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Collider2D playerCollider;
+
+    public event Action OnDash;         //handles what to do on a dash outside of this script
 
     void Awake()
     {
@@ -166,7 +169,7 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         rb.gravityScale = 0f;
 
-        //Rotate exactly 360° over the duration
+        //Rotate exactly 360ï¿½ over the duration
         float elapsed = 0f;
         float totalRotation = 0f;
         float targetRotation = 360f;
@@ -200,6 +203,8 @@ public class PlayerController : MonoBehaviour
 
         rb.gravityScale = 0f;
         rb.linearVelocity = new Vector2(direction * dashForce, 0f);
+
+        OnDash.Invoke();
 
         yield return new WaitForSeconds(dashDuration);
 

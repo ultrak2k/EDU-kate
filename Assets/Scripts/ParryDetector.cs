@@ -1,5 +1,8 @@
 using UnityEngine;
 
+
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerController))]
 public class ParryDetector : MonoBehaviour
 {
     [Header("Colliders")]
@@ -11,24 +14,21 @@ public class ParryDetector : MonoBehaviour
     public float miniJumpMultiplier = 0.5f;
     public GameObject Particle;
 
-    [Tooltip("Layer(s) that can be parried — e.g. Enemy, Projectile.")]
+    [Tooltip("Layer(s) that can be parried ï¿½ e.g. Enemy, Projectile.")]
     public LayerMask parryableLayer;
 
-    
+
     private bool _isParryActive;
     private Rigidbody2D _rb;
     private PlayerController _pc;
 
-    // cache of overlaps to avoid GC allocations — we only care about the first few hits anyway
+    // cache of overlaps to avoid GC allocations ï¿½ we only care about the first few hits anyway
     private readonly Collider2D[] _overlapBuffer = new Collider2D[8];
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _pc = GetComponent<PlayerController>();
-
-        if (_rb == null) Debug.LogError("ParryDetector: no Rigidbody2D found on " + name);
-        if (_pc == null) Debug.LogError("ParryDetector: no PlayerController found on " + name);
 
         // Make sure the parry collider starts inactive
         if (parryCollider != null)
@@ -49,7 +49,7 @@ public class ParryDetector : MonoBehaviour
             parryCollider.enabled = active;
     }
 
-    
+
 
     void CheckParryOverlap()
     {
@@ -69,11 +69,11 @@ public class ParryDetector : MonoBehaviour
             // Ignore self
             if (hit == parryCollider || hit == playerCollider) continue;
 
-            // Valid parry hit — apply bounce and end the parry window immediately
+            // Valid parry hit ï¿½ apply bounce and end the parry window immediately
             ApplyMiniJump();
             SetParryActive(false);
             Instantiate(Particle, transform.position, Quaternion.identity);
-            return;    
+            return;
         }
     }
 
@@ -82,7 +82,7 @@ public class ParryDetector : MonoBehaviour
         if (_rb == null || _pc == null) return;
 
         float miniJumpForce = _pc.jumpForce * miniJumpMultiplier;
-        
+
         // Override vertical velocity so the bounce feels consistent
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, miniJumpForce);
 
