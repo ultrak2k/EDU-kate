@@ -566,6 +566,9 @@ MonoBehaviour:
   groundCheckRadius: 0.15
   parryHangDuration: 0.2
   parryRotationSpeed: 720
+  dashForce: 12
+  dashDuration: 0.15
+  dashCooldown: 0.6
   playerCollider: {fileID: 501292825}
 --- !u!50 &585621183
 Rigidbody2D:
@@ -582,7 +585,7 @@ Rigidbody2D:
   m_Mass: 4
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1.25
+  m_GravityScale: 1.1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

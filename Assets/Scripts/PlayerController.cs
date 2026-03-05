@@ -18,14 +18,26 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.15f;
 
     [Header("Parry")]
-    public float parryHangDuration = 0.2f;   // secs momentum is paused
+    public float parryHangDuration = 0.2f;   // secs momentum/grav is paused
     public float parryRotationSpeed = 720f;   // degrees per sec (720 = 1 sec as full spin at 0.5s)
 
-    
+    [Header("Dash")]
+    public float dashForce = 20f;
+    public float dashDuration = 0.15f;      // how long gravity/momentum is suppressed
+    public float dashCooldown = 0.6f;
+
+    private float lastDashTime = -99f;      
+    private float facingDirection = 1f;
+
+    [Header("Coyote Time")] //apparently this is what its called??
+    public float coyoteTime = 0.12f;        // seconds after leaving ground you can still jump
+    private float coyoteTimeCounter;
+
     private Rigidbody2D rb;
     private bool isGrounded;
     private bool hasParried;          // used up parry this airtime?
     private bool isParrying;          // currently mid-parry animation?
+    private bool isDashing;           // currently mid-dash
 
     private float moveInput;   
     private float verticalMoveInput;   
@@ -36,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        //playerCollider = GetComponent<Collider2D>();
+        //playerCollider = GetComponent<Collider2D>(); //redundant for now, could be used if we have an actual collider for the guy
         rb = GetComponent<Rigidbody2D>();
 
         // Auto-create a ground-check child if one wasn't assigned
@@ -54,6 +66,8 @@ public class PlayerController : MonoBehaviour
         Vector2 input = value.Get<Vector2>();
         moveInput = input.x;
         verticalMoveInput = input.y;
+        if (moveInput != 0f)
+            facingDirection = Mathf.Sign(moveInput);
     }
 
     void OnJump(InputValue value)
@@ -61,6 +75,12 @@ public class PlayerController : MonoBehaviour
         
         if (value.isPressed)
             jumpQueued = true;
+    }
+
+    void OnSprint(InputValue value)
+    {
+        if (value.isPressed && !isDashing && Time.time >= lastDashTime + dashCooldown)
+            StartCoroutine(DoDash());
     }
 
     void Update()
@@ -80,11 +100,15 @@ public class PlayerController : MonoBehaviour
         bool wasGrounded = isGrounded;
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         bool isPlatformed = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, oneWayPlatformLayer);
-        
+
         if (isGrounded || isPlatformed)
         {
             isGrounded = true; //platforms on a seperate layer, still need "GROUND" layer for parry reset and stuff
         }
+        if (isGrounded)
+            coyoteTimeCounter = coyoteTime;     // reset the window while grounded
+        else
+            coyoteTimeCounter -= Time.deltaTime;
 
         // Reset hasparried on landing
         if (isGrounded && !wasGrounded)
@@ -94,7 +118,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
-        if (isParrying) return;
+        if (isParrying || isDashing) return;
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
     }
 
@@ -112,8 +136,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (isGrounded)
+        bool canJump = isGrounded || coyoteTimeCounter > 0f;
+
+        if (canJump)
         {
+            coyoteTimeCounter = 0f;
             Jump();
         }
         else if (!hasParried && !isParrying)
@@ -159,6 +186,25 @@ public class PlayerController : MonoBehaviour
         // become god and reapply gravity
         rb.gravityScale = 1f;
         isParrying = false;
+    }
+    IEnumerator DoDash()
+    {
+        Debug.Log("DASH!");
+        isDashing = true;
+        lastDashTime = Time.time;
+
+        // Use current input direction, or if no input, dash in facing direction
+        float direction = moveInput != 0f ? Mathf.Sign(moveInput) : facingDirection;
+
+        rb.gravityScale = 0f;
+        rb.linearVelocity = new Vector2(direction * dashForce, 0f);
+
+        yield return new WaitForSeconds(dashDuration);
+
+        rb.gravityScale = 1f;
+        // Bleed off horizontal speed so it doesn't feel goofy aah after the dash
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        isDashing = false;
     }
 
     IEnumerator DropThrough()
