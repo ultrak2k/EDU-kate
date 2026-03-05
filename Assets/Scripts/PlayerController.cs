@@ -161,6 +161,7 @@ public class PlayerController : MonoBehaviour
         hasParried = true;
         isParrying = true;
 
+        GetComponent<ParryDetector>()?.SetParryActive(true);
         // Pause downward (and upward?) momentum
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         rb.gravityScale = 0f;
@@ -184,7 +185,8 @@ public class PlayerController : MonoBehaviour
         transform.eulerAngles = new Vector3(0f, 0f, startAngle + targetRotation);
 
         // become god and reapply gravity
-        rb.gravityScale = 1f;
+        rb.gravityScale = 1.1f;
+        GetComponent<ParryDetector>()?.SetParryActive(false);
         isParrying = false;
     }
     IEnumerator DoDash()
