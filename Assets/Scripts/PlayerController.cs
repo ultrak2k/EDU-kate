@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [Header("Jump")]
     public float jumpForce = 16f;
     public LayerMask groundLayer;
+    public LayerMask oneWayPlatformLayer;
     public Transform groundCheck;
     public float groundCheckRadius = 0.15f;
 
@@ -27,11 +28,15 @@ public class PlayerController : MonoBehaviour
     private bool isParrying;          // currently mid-parry animation?
 
     private float moveInput;   
+    private float verticalMoveInput;   
     private bool jumpQueued;
 
+    [SerializeField]
+    private Collider2D playerCollider;
 
     void Awake()
     {
+        //playerCollider = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
 
         // Auto-create a ground-check child if one wasn't assigned
@@ -45,8 +50,10 @@ public class PlayerController : MonoBehaviour
     }
     void OnMove(InputValue value)
     {
-        
-        moveInput = value.Get<Vector2>().x;
+
+        Vector2 input = value.Get<Vector2>();
+        moveInput = input.x;
+        verticalMoveInput = input.y;
     }
 
     void OnJump(InputValue value)
@@ -72,6 +79,12 @@ public class PlayerController : MonoBehaviour
     {
         bool wasGrounded = isGrounded;
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        bool isPlatformed = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, oneWayPlatformLayer);
+        
+        if (isGrounded || isPlatformed)
+        {
+            isGrounded = true; //platforms on a seperate layer, still need "GROUND" layer for parry reset and stuff
+        }
 
         // Reset hasparried on landing
         if (isGrounded && !wasGrounded)
@@ -90,6 +103,14 @@ public class PlayerController : MonoBehaviour
     {
         if (!jumpQueued) return;
         jumpQueued = false;     // consume the input 
+        
+        bool holdingDown = verticalMoveInput < -0.5f;
+        Debug.Log($"isGrounded={isGrounded}  verticalInput={verticalMoveInput}  holdingDown={holdingDown}");
+        if (isGrounded && holdingDown)
+        {
+            StartCoroutine(DropThrough());
+            return;
+        }
 
         if (isGrounded)
         {
@@ -138,6 +159,24 @@ public class PlayerController : MonoBehaviour
         // become god and reapply gravity
         rb.gravityScale = 1f;
         isParrying = false;
+    }
+
+    IEnumerator DropThrough()
+    {
+        // Grab the actual platform colliders under the player's feet
+        Collider2D[] platforms = Physics2D.OverlapCircleAll(
+            groundCheck.position, groundCheckRadius, oneWayPlatformLayer
+        );
+
+        foreach (Collider2D platform in platforms)
+            Physics2D.IgnoreCollision(playerCollider, platform, true);
+
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, -2f);
+
+        yield return new WaitForSeconds(0.3f);
+
+        foreach (Collider2D platform in platforms)
+            Physics2D.IgnoreCollision(playerCollider, platform, false);
     }
 
     // Visualise grounch check
