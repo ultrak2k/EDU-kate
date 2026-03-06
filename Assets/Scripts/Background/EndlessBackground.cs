@@ -42,50 +42,40 @@ public class EndlessBackground : MonoBehaviour
         float playerX = player.position.x;
         float recycleDistance = backgroundWidth * recycleThresholdMultiplier;
 
-        if (scrollDirection >= 0)
+        // Moving RIGHT: left panel  too far behind
+        float leftPanelX = backgrounds[leftIndex].position.x;
+        if (playerX - leftPanelX > recycleDistance)
         {
-            // Moving RIGHT: recycle left panel to the right
-            float leftPanelX = backgrounds[leftIndex].position.x;
+            float newX = backgrounds[rightIndex].position.x + backgroundWidth;
+            Vector3 pos = backgrounds[leftIndex].position;
+            pos.x = newX;
+            backgrounds[leftIndex].position = pos;
 
-            if (playerX - leftPanelX > recycleDistance)
-            {
-                // Teleport the leftmost panel to the right of the rightmost panel
-                float newX = backgrounds[rightIndex].position.x + backgroundWidth;
-                Vector3 pos = backgrounds[leftIndex].position;
-                pos.x = newX;
-                backgrounds[leftIndex].position = pos;
-
-                // Rotate the index tracking
-                int oldLeft = leftIndex;
-                leftIndex = middleIndex;
-                middleIndex = rightIndex;
-                rightIndex = oldLeft;
-            }
+            int oldLeft = leftIndex;
+            leftIndex = middleIndex;
+            middleIndex = rightIndex;
+            rightIndex = oldLeft;
+            return; // dont spam it every  frame
         }
-        else
+
+        // Moving LEFT: right panel too far behind
+        float rightPanelX = backgrounds[rightIndex].position.x;
+        if (rightPanelX - playerX > recycleDistance)
         {
-            // Moving LEFT: recycle right panel to the left // this doesnt work?
-            float rightPanelX = backgrounds[rightIndex].position.x;
+            float newX = backgrounds[leftIndex].position.x - backgroundWidth;
+            Vector3 pos = backgrounds[rightIndex].position;
+            pos.x = newX;
+            backgrounds[rightIndex].position = pos;
 
-            if (rightPanelX - playerX > recycleDistance)
-            {
-                // Teleport the rightmost panel to the left of the leftmost panel
-                float newX = backgrounds[leftIndex].position.x - backgroundWidth;
-                Vector3 pos = backgrounds[rightIndex].position;
-                pos.x = newX;
-                backgrounds[rightIndex].position = pos;
-
-                // Rotate the index tracking
-                int oldRight = rightIndex;
-                rightIndex = middleIndex;
-                middleIndex = leftIndex;
-                leftIndex = oldRight;
-            }
+            int oldRight = rightIndex;
+            rightIndex = middleIndex;
+            middleIndex = leftIndex;
+            leftIndex = oldRight;
         }
     }
     private void SnapPanelsToStartPositions()
     {
-        // Use panel 0 as the anchor
+        // Use panel 0 as anchor
         float baseX = backgrounds[0].position.x;
 
         for (int i = 0; i < backgrounds.Length; i++)
@@ -100,20 +90,20 @@ public class EndlessBackground : MonoBehaviour
     {
         if (backgrounds == null || backgrounds.Length != 3)
         {
-            Debug.LogError("[EndlessBackground] You must assign exactly 3 backgrounds in the Inspector.");
+            Debug.LogError("[EndlessBackground] You must assign exactly 3 backgrounds inda Inspector.");
             return false;
         }
         for (int i = 0; i < backgrounds.Length; i++)
         {
             if (backgrounds[i] == null)
             {
-                Debug.LogError($"[EndlessBackground] backgrounds[{i}] is not assigned.");
+                Debug.LogError($"[EndlessBackground] backgrounds[{i}] not assigned.");
                 return false;
             }
         }
         if (player == null)
         {
-            Debug.LogError("[EndlessBackground] Player Transform is not assigned.");
+            Debug.LogError("[EndlessBackground] Player Transform not assigned.");
             return false;
         }
         if (backgroundWidth <= 0f)

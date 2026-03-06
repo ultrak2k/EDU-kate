@@ -12,7 +12,7 @@ public class Parallax : MonoBehaviour
     [SerializeField] private Dictionary<SpriteRenderer, float> _bgLayerStartingPos = new();
     private Camera _camera;
     private int _furthestLayer = 0;
-    private int _lengthsTravelled = 0;
+    private int _lengthsTravelled = 0; // remind ben to add to his
 
 
 
