@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
-    private bool hasParried;          // used up parry this airtime?
+    public bool hasParried;          // used up parry this airtime?
     private bool isParrying;          // currently mid-parry animation?
     private bool isDashing;           // currently mid-dash
 

@@ -71,6 +71,7 @@ public class ParryDetector : MonoBehaviour
 
             // Valid parry hit � apply bounce and end the parry window immediately
             ApplyMiniJump();
+            _pc.hasParried = false; //allow for chain parries on sucessfull parry.
             SetParryActive(false);
             Instantiate(Particle, transform.position, Quaternion.identity);
             return;
