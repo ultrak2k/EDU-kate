@@ -6,7 +6,9 @@ public class EndlessBackground : MonoBehaviour
 {
     [Header("References")]
     [Tooltip("3 background, ordered left to right.")]
+
     public Transform[] backgrounds = new Transform[3];
+    public GameObject[] objectsToRandomize; // for random scaling of objects etc.
 
     [Tooltip("The player.")]
     public Transform player;
@@ -28,6 +30,9 @@ public class EndlessBackground : MonoBehaviour
     private int leftIndex = 0;
     private int middleIndex = 1;
     private int rightIndex = 2;
+
+    //for random scaling of objects etc.
+    private int _lengthsTravelled = 0;
 
     private void Start()
     {
