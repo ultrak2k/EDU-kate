@@ -32,6 +32,7 @@ public class DialogueManager : MonoBehaviour
     [Header("UI")]
     public TMP_Text speakerNameText;
     public TMP_Text dialogueBodyText;
+    public TMP_Text NarratorBodyText;
     public GameObject dialogueBodyTextObject; // for enabling/disabling the text if needed
     public GameObject dialoguePanel;
     public GameObject NextSceneButton;
@@ -40,6 +41,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Character Dialogue Sprites")]
     public GameObject EDUSprite;
     public GameObject KateSprite;
+    public GameObject NarratorSprite;
+    public GameObject NarratorBodyTextObject;
 
     public float typewriterSpeed = 0.03f;
 
@@ -135,16 +138,48 @@ public class DialogueManager : MonoBehaviour
         dialogueBodyTextObject.SetActive(true);
         switch (speaker)
         {
-            case Speaker.EDU: if (EDUSprite != null) EDUSprite.SetActive(true); break;
-            case Speaker.Kate: if (KateSprite != null) KateSprite.SetActive(true); break;
-            case Speaker.Narrator: break;
+            case Speaker.EDU:
+                if (EDUSprite != null) 
+                { 
+                    EDUSprite.SetActive(true);
+                    dialogueBodyTextObject.SetActive(true);
+                    NarratorBodyTextObject.SetActive(false);
+                }
+                break;
+            case Speaker.Kate:
+                if (KateSprite != null)
+                {
+                    KateSprite.SetActive(true);
+                    dialogueBodyTextObject.SetActive(true);
+                    NarratorBodyTextObject.SetActive(false);
+                } break;
+            case Speaker.Narrator:
+                if(NarratorSprite != null)
+                {
+                    NarratorSprite.SetActive(true);
+                    dialogueBodyTextObject.SetActive(false);
+                    NarratorBodyTextObject.SetActive(true);
+                }
+                break;
         }
     }
 
     private void SetAllSpritesInactive()
     {
-        if (EDUSprite != null) EDUSprite.SetActive(false);
-        if (KateSprite != null) KateSprite.SetActive(false);
+        if (EDUSprite != null)
+        {
+            EDUSprite.SetActive(false);
+        }
+        if (KateSprite != null)
+        {
+            KateSprite.SetActive(false);
+        }
+        if (NarratorSprite != null)
+        {
+            NarratorSprite.SetActive(true);
+            dialogueBodyTextObject.SetActive(false);
+            NarratorBodyTextObject.SetActive(false);
+        }
     }
 
     private void EndDialogue()

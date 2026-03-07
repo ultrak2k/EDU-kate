@@ -1966,6 +1966,7 @@ MonoBehaviour:
   dashCooldown: 0.6
   coyoteTime: 0.12
   hasParried: 0
+  DialoguesTriggered: 0
   playerCollider: {fileID: 501292825}
 --- !u!50 &585621183
 Rigidbody2D:
@@ -2068,6 +2069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b212a6af386a00c45b7321bcbd29696c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndlessBackground
+  PlayerCont: {fileID: 0}
   backgrounds:
   - {fileID: 1197330014}
   - {fileID: 57511808}
@@ -2077,6 +2079,8 @@ MonoBehaviour:
   backgroundWidth: 20
   scrollDirection: 1
   recycleThresholdMultiplier: 1.5
+  Level1: {fileID: 0}
+  SpawnLevelRight: 2
 --- !u!1 &668631082
 GameObject:
   m_ObjectHideFlags: 0
@@ -2939,7 +2943,7 @@ GameObject:
   - component: {fileID: 777843716}
   - component: {fileID: 777843717}
   m_Layer: 0
-  m_Name: DialogueManager
+  m_Name: DialogueEvent1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2973,22 +2977,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   lines:
-  - text: Hi I am kate
-    speaker: 2
-  - text: WSG kate im edu
-    speaker: 1
+  - text: "Kate & EDU are finding Kate's old lab in an attempt to replace EDU\u2019s
+      battery before the old one implodes due to a technical fault? "
+    speaker: 0
+  - text: Kate, already at the school's gates, calls EDU remotely.
+    speaker: 0
   - text: Lets fuck shit up
     speaker: 2
   - text: Hell yeah
     speaker: 1
   speakerNameText: {fileID: 1339418141}
   dialogueBodyText: {fileID: 995015887}
+  NarratorBodyText: {fileID: 0}
   dialogueBodyTextObject: {fileID: 995015885}
   dialoguePanel: {fileID: 866131612}
   NextSceneButton: {fileID: 0}
   continueButton: {fileID: 0}
   EDUSprite: {fileID: 1342772453}
   KateSprite: {fileID: 99533376}
+  NarratorSprite: {fileID: 0}
+  NarratorBodyTextObject: {fileID: 0}
   typewriterSpeed: 0.03
 --- !u!1 &789570703
 GameObject:
@@ -8697,6 +8705,71 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1915159468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1915159470}
+  - component: {fileID: 1915159469}
+  m_Layer: 0
+  m_Name: DialogueEvent2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1915159469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915159468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a239f27865894498152ff3059fc296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+  lines:
+  - text: Hi I am kate
+    speaker: 2
+  - text: WSG kate im edu
+    speaker: 1
+  - text: Lets fuck shit up
+    speaker: 2
+  - text: Hell yeah
+    speaker: 1
+  speakerNameText: {fileID: 1339418141}
+  dialogueBodyText: {fileID: 995015887}
+  NarratorBodyText: {fileID: 0}
+  dialogueBodyTextObject: {fileID: 995015885}
+  dialoguePanel: {fileID: 866131612}
+  NextSceneButton: {fileID: 0}
+  continueButton: {fileID: 0}
+  EDUSprite: {fileID: 1342772453}
+  KateSprite: {fileID: 99533376}
+  NarratorSprite: {fileID: 0}
+  NarratorBodyTextObject: {fileID: 0}
+  typewriterSpeed: 0.03
+--- !u!4 &1915159470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915159468}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 295.9749, y: 441.1667, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1918379324
 GameObject:
   m_ObjectHideFlags: 0
@@ -9027,3 +9100,4 @@ SceneRoots:
   - {fileID: 1147588811}
   - {fileID: 948035137}
   - {fileID: 777843716}
+  - {fileID: 1915159470}

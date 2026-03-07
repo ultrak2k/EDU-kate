@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     private float moveInput;   
     private float verticalMoveInput;   
     private bool jumpQueued;
+    public int DialoguesTriggered = 0;
 
     [SerializeField]
     private Collider2D playerCollider;
