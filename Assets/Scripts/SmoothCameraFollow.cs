@@ -7,6 +7,8 @@ public class SmoothCameraFollow : MonoBehaviour
     [SerializeField] private float TakeOff;
     private Vector2 Migos = Vector2.zero;
 
+    public bool KateMode;
+
 
     private void Awake()
     {
@@ -17,6 +19,7 @@ public class SmoothCameraFollow : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 TargetPosition = Quavo.position + Offset;
+        if(!KateMode)
         TargetPosition.y = 0;
 
         transform.position = Vector2.SmoothDamp(transform.position, TargetPosition, ref Migos, TakeOff);
