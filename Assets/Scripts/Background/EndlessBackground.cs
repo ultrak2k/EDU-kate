@@ -6,7 +6,6 @@ public class EndlessBackground : MonoBehaviour
 {
     [Header("References")]
     [Tooltip("3 background, ordered left to right.")]
-    public PlayerController PlayerCont;
 
     public Transform[] backgrounds = new Transform[3];
     public GameObject[] objectsToRandomize; // for random scaling of objects etc.
@@ -25,8 +24,7 @@ public class EndlessBackground : MonoBehaviour
     [Range(0f, 2f)]
     public float recycleThresholdMultiplier = 1.5f;
 
-    
-    public GameObject Level1;
+
 
     // Tracks which panel is currently the leftmost, middle, rightmost
     private int leftIndex = 0;
@@ -35,8 +33,6 @@ public class EndlessBackground : MonoBehaviour
 
     //for random scaling of objects etc.
     private int _lengthsTravelled = 0;
-
-    public int SpawnLevelRight = 2;
 
     private void Start()
     {
@@ -55,18 +51,31 @@ public class EndlessBackground : MonoBehaviour
         float leftPanelX = backgrounds[leftIndex].position.x;
         if (playerX - leftPanelX > recycleDistance)
         {
+            float newX = backgrounds[rightIndex].position.x + backgroundWidth;
+            Vector3 pos = backgrounds[leftIndex].position;
+            pos.x = newX;
+            backgrounds[leftIndex].position = pos;
 
-            // SpawnLevel(bool Right) is confusing, but right is true 
-            SpawnLevelRight = 1;
-            SpawnLevel(SpawnLevelRight);
+            int oldLeft = leftIndex;
+            leftIndex = middleIndex;
+            middleIndex = rightIndex;
+            rightIndex = oldLeft;
+            return; // dont spam it every  frame
         }
 
         // Moving LEFT: right panel too far behind
         float rightPanelX = backgrounds[rightIndex].position.x;
         if (rightPanelX - playerX > recycleDistance)
         {
-            SpawnLevelRight = 2;
-            SpawnLevel(SpawnLevelRight); // left is false
+            float newX = backgrounds[leftIndex].position.x - backgroundWidth;
+            Vector3 pos = backgrounds[rightIndex].position;
+            pos.x = newX;
+            backgrounds[rightIndex].position = pos;
+
+            int oldRight = rightIndex;
+            rightIndex = middleIndex;
+            middleIndex = leftIndex;
+            leftIndex = oldRight;
         }
     }
     private void SnapPanelsToStartPositions()
@@ -81,73 +90,7 @@ public class EndlessBackground : MonoBehaviour
             backgrounds[i].position = pos;
         }
     }
-    public void SpawnLevel(int SpawnLevelInt) //confusing using a bool but im sorry
-    {
-        if (PlayerCont.DialoguesTriggered == 1)
-        {
-            SpawnLevelInt = 0;
-            PlayerCont.DialoguesTriggered = 0;
-        }
-        //Moving RIGHT spawn level:
-        if (SpawnLevelInt == 0)
-        {
-            Transform OldEndless = backgrounds[leftIndex];
 
-            float newX = backgrounds[rightIndex].position.x + backgroundWidth;
-            Vector3 pos = backgrounds[leftIndex].position;
-            pos.x = newX;
-
-            
-
-            if (PlayerCont.DialoguesTriggered == 1)
-            {
-                backgrounds[leftIndex] = Level1.transform;
-                backgrounds[leftIndex].position = pos;
-            }
-            else
-            {
-                backgrounds[leftIndex].position = pos;
-            }
-
-            backgrounds[leftIndex] = OldEndless;
-
-            int oldLeft = leftIndex;
-            leftIndex = middleIndex;
-            middleIndex = rightIndex;
-            rightIndex = oldLeft;
-
-            return;
-        }
-        //Moving LEFT:
-        else if(SpawnLevelInt == 1)
-        {
-            float newX = backgrounds[leftIndex].position.x - backgroundWidth;
-            Vector3 pos = backgrounds[rightIndex].position;
-            pos.x = newX;
-            
-            backgrounds[rightIndex].position = pos;
-         
-            int oldRight = rightIndex;
-            rightIndex = middleIndex;
-            middleIndex = leftIndex;
-            leftIndex = oldRight;
-        }
-        //Moving Right:
-        else if (SpawnLevelInt == 2)
-        {
-            float newX = backgrounds[rightIndex].position.x - backgroundWidth;
-            Vector3 pos = backgrounds[leftIndex].position;
-            pos.x = newX;
-
-            backgrounds[leftIndex].position = pos;
-
-            int oldLeft = leftIndex;
-            leftIndex = middleIndex;
-            middleIndex = rightIndex;
-            rightIndex = oldLeft;
-        }
-
-    }
     private bool DebugNonsense()
     {
         if (backgrounds == null || backgrounds.Length != 3)

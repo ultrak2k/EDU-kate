@@ -26,17 +26,18 @@ public class DialogueTrigger : MonoBehaviour
         {
             hasTriggered = true;
 
-            PlayerController playerController = other.GetComponent<PlayerController>();
+            PlayerController playerController = other.GetComponentInParent<PlayerController>();
             if (playerController != null)
             {
-                playerController.DialoguesTriggered++;
+
+                PlayDialogue(DialogueEvent);
             }
             else
             {
                 Debug.LogWarning("PlayerController not found on Player object.");
             }
 
-            PlayDialogue(DialogueEvent);
+            
         }
     }
 }

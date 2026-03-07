@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public float dashDuration = 0.15f;      // how long gravity/momentum is suppressed
     public float dashCooldown = 0.6f;
 
-    private float lastDashTime = -99f;      
+    private float lastDashTime = -99f;
     private float facingDirection = 1f;
 
     [Header("Coyote Time")] //apparently this is what its called??
@@ -40,10 +40,9 @@ public class PlayerController : MonoBehaviour
     private bool isParrying;          // currently mid-parry animation?
     private bool isDashing;           // currently mid-dash
 
-    private float moveInput;   
-    private float verticalMoveInput;   
+    private float moveInput;
+    private float verticalMoveInput;
     private bool jumpQueued;
-    public int DialoguesTriggered = 0;
 
     [SerializeField]
     private Collider2D playerCollider;
@@ -76,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        
+
         if (value.isPressed)
             jumpQueued = true;
     }
@@ -98,7 +97,7 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
     }
 
-   
+
     void CheckGrounded()
     {
         bool wasGrounded = isGrounded;
@@ -131,7 +130,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!jumpQueued) return;
         jumpQueued = false;     // consume the input 
-        
+
         bool holdingDown = verticalMoveInput < -0.5f;
         Debug.Log($"isGrounded={isGrounded}  verticalInput={verticalMoveInput}  holdingDown={holdingDown}");
         if (isGrounded && holdingDown)
@@ -170,7 +169,7 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         rb.gravityScale = 0f;
 
-        //Rotate exactly 360� over the duration
+        //Rotate exactly 360ï¿½ over the duration
         float elapsed = 0f;
         float totalRotation = 0f;
         float targetRotation = 360f;

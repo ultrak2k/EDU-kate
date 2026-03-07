@@ -32,7 +32,6 @@ public class DialogueManager : MonoBehaviour
     [Header("UI")]
     public TMP_Text speakerNameText;
     public TMP_Text dialogueBodyText;
-    public TMP_Text NarratorBodyText;
     public GameObject dialogueBodyTextObject; // for enabling/disabling the text if needed
     public GameObject dialoguePanel;
     public GameObject NextSceneButton;
@@ -41,8 +40,9 @@ public class DialogueManager : MonoBehaviour
     [Header("Character Dialogue Sprites")]
     public GameObject EDUSprite;
     public GameObject KateSprite;
-    public GameObject NarratorSprite;
-    public GameObject NarratorBodyTextObject;
+    public GameObject NarSprite;
+
+    public GameObject KateHerself;
 
     public float typewriterSpeed = 0.03f;
 
@@ -130,8 +130,7 @@ public class DialogueManager : MonoBehaviour
         skipRequested = false;
     }
 
-    //when i was using sprites to popup this was needed, but now that they are built in this becomes redundant,
-    //but i will keep it here just in case i want to add some popups later
+ 
     private void ActivateSpriteFor(Speaker speaker)
     {
         SetAllSpritesInactive();
@@ -139,26 +138,24 @@ public class DialogueManager : MonoBehaviour
         switch (speaker)
         {
             case Speaker.EDU:
-                if (EDUSprite != null) 
-                { 
+                if (EDUSprite != null)
+                {
                     EDUSprite.SetActive(true);
-                    dialogueBodyTextObject.SetActive(true);
-                    NarratorBodyTextObject.SetActive(false);
                 }
                 break;
+
+
             case Speaker.Kate:
                 if (KateSprite != null)
                 {
                     KateSprite.SetActive(true);
-                    dialogueBodyTextObject.SetActive(true);
-                    NarratorBodyTextObject.SetActive(false);
-                } break;
+                    KateHerself.SetActive(true);
+                }
+                break;
             case Speaker.Narrator:
-                if(NarratorSprite != null)
+                if (NarSprite != null)
                 {
-                    NarratorSprite.SetActive(true);
-                    dialogueBodyTextObject.SetActive(false);
-                    NarratorBodyTextObject.SetActive(true);
+                    NarSprite.SetActive(true);
                 }
                 break;
         }
@@ -166,28 +163,18 @@ public class DialogueManager : MonoBehaviour
 
     private void SetAllSpritesInactive()
     {
-        if (EDUSprite != null)
-        {
-            EDUSprite.SetActive(false);
-        }
-        if (KateSprite != null)
-        {
-            KateSprite.SetActive(false);
-        }
-        if (NarratorSprite != null)
-        {
-            NarratorSprite.SetActive(true);
-            dialogueBodyTextObject.SetActive(false);
-            NarratorBodyTextObject.SetActive(false);
-        }
+        if (EDUSprite != null) EDUSprite.SetActive(false);
+        if (KateSprite != null) KateSprite.SetActive(false);
+        if (NarSprite != null) NarSprite.SetActive(false);
     }
 
     private void EndDialogue()
     {
         dialoguePanel.SetActive(false);
         dialogueBodyTextObject.SetActive(false);
-        NextSceneButton.SetActive(true);
+        //NextSceneButton.SetActive(true);
+        KateHerself.SetActive(false);
         SetAllSpritesInactive();
-        Debug.Log("Dialogue finished trigger your next event.");
+
     }
 }
