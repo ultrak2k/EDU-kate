@@ -48,6 +48,9 @@ public class PlayerController : MonoBehaviour
     private Collider2D playerCollider;
 
     public event Action OnDash;         //handles what to do on a dash outside of this script
+    public event Action OnParry;        //handles parrying outside of this script [like charge recharge]
+    public event Action<float> OnAnimatorMovement;
+    public event Action<float> OnChangeDirection; //called by direction change
 
     void Awake()
     {
@@ -65,12 +68,18 @@ public class PlayerController : MonoBehaviour
     }
     void OnMove(InputValue value)
     {
-
         Vector2 input = value.Get<Vector2>();
         moveInput = input.x;
         verticalMoveInput = input.y;
+
+        //invoke to change animation state from idle or vice versa
+        OnAnimatorMovement?.Invoke(moveInput);
         if (moveInput != 0f)
+        {
             facingDirection = Mathf.Sign(moveInput);
+            OnChangeDirection?.Invoke(facingDirection);
+        }
+            
     }
 
     void OnJump(InputValue value)
@@ -158,6 +167,16 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 
+    #region "Parrying"
+    public void InvokeParry()
+    {
+        OnParry?.Invoke();
+    }
+
+    public bool GetIsParrying()
+    {
+        return isParrying;
+    }
 
     IEnumerator DoParry()
     {
@@ -192,6 +211,10 @@ public class PlayerController : MonoBehaviour
         GetComponent<ParryDetector>()?.SetParryActive(false);
         isParrying = false;
     }
+
+    #endregion
+
+    #region "Dashing & Drop Through"
     IEnumerator DoDash()
     {
         Debug.Log("DASH!");
@@ -231,6 +254,8 @@ public class PlayerController : MonoBehaviour
         foreach (Collider2D platform in platforms)
             Physics2D.IgnoreCollision(playerCollider, platform, false);
     }
+
+    #endregion
 
     // Visualise grounch check
     void OnDrawGizmosSelected()

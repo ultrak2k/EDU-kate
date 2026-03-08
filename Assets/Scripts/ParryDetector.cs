@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -12,7 +13,6 @@ public class ParryDetector : MonoBehaviour
     [Header("Parry Bounce")]
     [Tooltip("Multiplier applied to PlayerController.jumpForce for the mini-jump (0.5 = half jump).")]
     public float miniJumpMultiplier = 0.5f;
-    public GameObject Particle;
 
     [Tooltip("Layer(s) that can be parried � e.g. Enemy, Projectile.")]
     public LayerMask parryableLayer;
@@ -21,6 +21,8 @@ public class ParryDetector : MonoBehaviour
     private bool _isParryActive;
     private Rigidbody2D _rb;
     private PlayerController _pc;
+
+    public event Action OnParry;        //handles parrying outside of this script [like charge recharge]
 
     // cache of overlaps to avoid GC allocations � we only care about the first few hits anyway
     private readonly Collider2D[] _overlapBuffer = new Collider2D[8];
@@ -72,8 +74,8 @@ public class ParryDetector : MonoBehaviour
             // Valid parry hit � apply bounce and end the parry window immediately
             ApplyMiniJump();
             _pc.hasParried = false; //allow for chain parries on sucessfull parry.
+            _pc.InvokeParry();
             SetParryActive(false);
-            Instantiate(Particle, transform.position, Quaternion.identity);
             return;
         }
     }
