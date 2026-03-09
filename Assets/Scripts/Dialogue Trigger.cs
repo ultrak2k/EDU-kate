@@ -31,7 +31,7 @@ public class DialogueTrigger : MonoBehaviour
             PlayerController playerController = other.GetComponentInParent<PlayerController>();
             if (playerController != null)
             {
-
+                Debug.Log("Instantied");
                 PlayDialogue(DialogueEvent);
             }
             else
