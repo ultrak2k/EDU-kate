@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 2eafc256752e6bc4f96d2c5296105609
+guid: 78fec8060136cb845984a8c84b1fb87e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2705597995764985619
-    second: rocks_0
+      213: -1048901317353816797
+    second: 2rocks_0
   - first:
-      213: 8032301891362702160
-    second: rocks_1
+      213: -6423758239526909033
+    second: 2rocks_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rocks_0
+      name: 2rocks_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 379
-        width: 841
-        height: 340
+        x: 114
+        y: 394
+        width: 758
+        height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de05b6d25f8c37ad0800000000000000
-      internalID: -2705597995764985619
+      spriteID: 32dbfa62fcd8171f0800000000000000
+      internalID: -1048901317353816797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rocks_1
+      name: 2rocks_1
       rect:
         serializedVersion: 2
-        x: 891
-        y: 325
-        width: 458
-        height: 262
+        x: 1017
+        y: 403
+        width: 715
+        height: 232
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0534f536308787f60800000000000000
-      internalID: 8032301891362702160
+      spriteID: 79b820a6ae93ad6a0800000000000000
+      internalID: -6423758239526909033
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rocks_0: -2705597995764985619
-      rocks_1: 8032301891362702160
+      2rocks_0: -1048901317353816797
+      2rocks_1: -6423758239526909033
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
