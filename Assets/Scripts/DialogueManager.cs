@@ -26,6 +26,9 @@ public class DialogueLine
 
 public class DialogueManager : MonoBehaviour
 {
+    [SerializeField] private Parallax _parallax;
+    [SerializeField] private GameObject _levelToSpawn;
+
     [Header("Dialogue Lines")]
     public DialogueLine[] lines;
 
@@ -161,13 +164,18 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void SetLevelToSpawn(GameObject prefabLevel)
+    {
+        _levelToSpawn = prefabLevel;
+    }
+
     private void SetAllSpritesInactive()
     {
         if (EDUSprite != null) EDUSprite.SetActive(false);
         if (KateSprite != null) KateSprite.SetActive(false);
         if (NarSprite != null) NarSprite.SetActive(false);
     }
-
+    
     private void EndDialogue()
     {
         dialoguePanel.SetActive(false);
@@ -176,5 +184,8 @@ public class DialogueManager : MonoBehaviour
         KateHerself.SetActive(false);
         SetAllSpritesInactive();
 
+        //
+        Instantiate(_levelToSpawn, _parallax.GetFurthestBackgroundPos(), Quaternion.identity);
+ 
     }
 }

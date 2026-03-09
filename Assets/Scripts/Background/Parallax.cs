@@ -71,6 +71,23 @@ public class Parallax : MonoBehaviour
         }
     }
 
+    //gets the x position of the furthest edge of the rightmost background
+    public Vector3 GetFurthestBackgroundPos()
+    {
+        float biggestX = 0;
+        float biggestY = 0;
+        foreach (SpriteRenderer layer in _backgroundLayers)
+        {
+            if (layer.sortingOrder == 0)
+            {
+                float newX = layer.transform.position.x + layer.size.x / 2;
+                biggestX = biggestX < newX ? newX : biggestX;
+                biggestY = layer.transform.position.y;
+            }
+        }
+        return new (biggestX, biggestY, 0);
+    }
+
     void Update()
     {
         HandleParallax();

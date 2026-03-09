@@ -4,6 +4,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     [Header("Dialogue Event")]
     public DialogueManager DialogueEvent;
+    [SerializeField] private GameObject _levelToSpawn;
 
     private bool hasTriggered = false;
 
@@ -16,6 +17,7 @@ public class DialogueTrigger : MonoBehaviour
         }
 
         dialogueManager.gameObject.SetActive(true);
+        dialogueManager.SetLevelToSpawn(_levelToSpawn);
     }
 
     private void OnTriggerEnter(Collider other)
