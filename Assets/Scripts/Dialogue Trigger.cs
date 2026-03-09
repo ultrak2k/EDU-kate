@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
         dialogueManager.SetLevelToSpawn(_levelToSpawn);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (hasTriggered) return;
 
@@ -31,7 +31,6 @@ public class DialogueTrigger : MonoBehaviour
             PlayerController playerController = other.GetComponentInParent<PlayerController>();
             if (playerController != null)
             {
-
                 PlayDialogue(DialogueEvent);
             }
             else
