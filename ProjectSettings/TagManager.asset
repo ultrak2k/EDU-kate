@@ -45,5 +45,11 @@ TagManager:
   - name: Lit
     uniqueID: 2393537309
     locked: 0
+  - name: ForeGround
+    uniqueID: 1982681595
+    locked: 0
+  - name: UI
+    uniqueID: 3284633987
+    locked: 0
   m_RenderingLayers:
   - Default
