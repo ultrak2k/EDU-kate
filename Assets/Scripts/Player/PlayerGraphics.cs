@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class PlayerGraphics : MonoBehaviour
     [Header("Sprite & Animation")]
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Animator _animator;
+    [SerializeField] private float iFrameCycleTime = .1f;
+    private bool _doFlicker = false;
 
     private PlayerController _playerController;
     private PlayerAttack _playerAttack;
@@ -33,6 +36,7 @@ public class PlayerGraphics : MonoBehaviour
         _playerController.OnChangeDirection += FlipSprite;
         _playerController.OnAnimatorMovement += OnMovement;
         _playerAttack.OnHealthChange += DoInvulnAlpha;
+        _playerAttack.OnInvulnEnd += StopInvulnAlpha;
         _playerAttack.OnHealthChange += UpdateHealthBar;
         _playerAttack.OnChargeChange += UpdateChargeBar;
     }
@@ -44,6 +48,7 @@ public class PlayerGraphics : MonoBehaviour
         _playerController.OnChangeDirection -= FlipSprite;
         _playerController.OnAnimatorMovement -= OnMovement;
         _playerAttack.OnHealthChange -= DoInvulnAlpha;
+        _playerAttack.OnInvulnEnd -= StopInvulnAlpha;
         _playerAttack.OnHealthChange -= UpdateHealthBar;
         _playerAttack.OnChargeChange -= UpdateChargeBar;
     }
@@ -65,7 +70,24 @@ public class PlayerGraphics : MonoBehaviour
         //check if it's damage and not healing by comparing fill
         if (_healthBar.fillAmount > (float)changeHealth / maxHealth)
         {
-            Debug.Log("Invuln!");
+            StartCoroutine(DoIFrameFlicker());
+        }
+    }
+
+    void StopInvulnAlpha()
+    {
+        _doFlicker = false;
+    }
+
+    IEnumerator DoIFrameFlicker()
+    {
+        _doFlicker = true;
+        while (_doFlicker)
+        {
+            _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, .5f);
+            yield return new WaitForSeconds(iFrameCycleTime);
+            _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 1f);
+            yield return new WaitForSeconds(iFrameCycleTime);
         }
     }
 

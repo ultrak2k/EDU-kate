@@ -28,6 +28,7 @@ public class PlayerAttack : MonoBehaviour, IDamageable
 
     public event Action<int, int> OnHealthChange; //int 1: current health | int 2 : max health
     public event Action<int, int> OnChargeChange; //int 1: current mana [positive or negative] | int 2 : max mana
+    public event Action OnInvulnEnd; //stops iframe flash
 
 
 
@@ -66,9 +67,11 @@ public class PlayerAttack : MonoBehaviour, IDamageable
 
     //makes player not take damage for specififed time        
     IEnumerator StartInvulnFrames()
-    {   
+    {
         _canBeDamaged = false;
         yield return new WaitForSeconds(invulnTime);
         _canBeDamaged = true;
+        Debug.Log("stop");
+        OnInvulnEnd?.Invoke();
     }
 }

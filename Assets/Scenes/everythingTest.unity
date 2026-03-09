@@ -3100,7 +3100,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 30
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1128826867356018621, guid: 33f9679923343a046988017b636c2ac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3810,7 +3810,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 30
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1128826867356018621, guid: 33f9679923343a046988017b636c2ac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4853,7 +4853,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: -247058054503370390, guid: a62ae9c03e0fea74cb4a4860eaa963e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6684,7 +6684,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 30
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1128826867356018621, guid: 33f9679923343a046988017b636c2ac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8031,7 +8031,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: -247058054503370390, guid: a62ae9c03e0fea74cb4a4860eaa963e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8186,7 +8186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
   _team: 2
   _hitBehaviour: 0
-  _damageAmount: 1
+  _damageAmount: 5
 --- !u!1 &1515220981
 GameObject:
   m_ObjectHideFlags: 0
@@ -9630,7 +9630,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 30
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1128826867356018621, guid: 33f9679923343a046988017b636c2ac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10346,7 +10346,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 30
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1128826867356018621, guid: 33f9679923343a046988017b636c2ac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

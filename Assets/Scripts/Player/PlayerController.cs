@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 8f;
+    [SerializeField] private bool _canReverse = true;
 
     [Header("Jump")]
     public float jumpForce = 16f;
@@ -69,7 +70,15 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue value)
     {
         Vector2 input = value.Get<Vector2>();
-        moveInput = input.x;
+        if (_canReverse)
+        {
+            moveInput = input.x;
+        }
+        else
+        {
+            moveInput = input.x > 0 ? input.x : 0;
+        }
+        
         verticalMoveInput = input.y;
 
         //invoke to change animation state from idle or vice versa
