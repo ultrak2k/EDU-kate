@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     public event Action OnDash;         //handles what to do on a dash outside of this script
     public event Action OnParry;        //handles parrying outside of this script [like charge recharge]
+    public event Action RealOnJump; //handles jump anim 
     public event Action<float> OnAnimatorMovement;
     public event Action<float> OnChangeDirection; //called by direction change
 
@@ -173,7 +174,10 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        RealOnJump?.Invoke();
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        
+
     }
 
     #region "Parrying"

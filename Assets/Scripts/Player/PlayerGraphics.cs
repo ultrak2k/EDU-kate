@@ -35,6 +35,7 @@ public class PlayerGraphics : MonoBehaviour
         _playerController.OnParry += PlayParryParticles;
         _playerController.OnChangeDirection += FlipSprite;
         _playerController.OnAnimatorMovement += OnMovement;
+        _playerController.RealOnJump += OnJump;
         _playerAttack.OnHealthChange += DoInvulnAlpha;
         _playerAttack.OnInvulnEnd += StopInvulnAlpha;
         _playerAttack.OnHealthChange += UpdateHealthBar;
@@ -47,6 +48,7 @@ public class PlayerGraphics : MonoBehaviour
         _playerController.OnParry -= PlayParryParticles;
         _playerController.OnChangeDirection -= FlipSprite;
         _playerController.OnAnimatorMovement -= OnMovement;
+        _playerController.RealOnJump -= OnJump;
         _playerAttack.OnHealthChange -= DoInvulnAlpha;
         _playerAttack.OnInvulnEnd -= StopInvulnAlpha;
         _playerAttack.OnHealthChange -= UpdateHealthBar;
@@ -58,6 +60,11 @@ public class PlayerGraphics : MonoBehaviour
     void OnMovement(float inputValue)
     {
         _animator.SetFloat("speed", Mathf.Abs(inputValue));
+    }
+
+    void OnJump()
+    {
+        _animator.SetTrigger("Jump");
     }
 
     void FlipSprite(float facingDirection)
@@ -90,6 +97,8 @@ public class PlayerGraphics : MonoBehaviour
             yield return new WaitForSeconds(iFrameCycleTime);
         }
     }
+
+
 
     #endregion
 

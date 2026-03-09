@@ -184,7 +184,7 @@ public class DialogueManager : MonoBehaviour
         KateHerself.SetActive(false);
         SetAllSpritesInactive();
 
-        Debug.Log("Instantied");
+        
         Instantiate(_levelToSpawn, _parallax.GetFurthestBackgroundPos(), Quaternion.identity);
  
     }
