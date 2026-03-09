@@ -186,6 +186,7 @@ public class DialogueManager : MonoBehaviour
 
         
         Instantiate(_levelToSpawn, _parallax.GetFurthestBackgroundPos(), Quaternion.identity);
- 
+        gameObject.SetActive(false);
+
     }
 }

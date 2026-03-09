@@ -260,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 4
   _canReverse: 1
-  jumpForce: 7
+  jumpForce: 6.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
