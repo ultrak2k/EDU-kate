@@ -2,9 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(PlayerController))]
-[RequireComponent(typeof(PlayerAttack))]
-
 //handles player animation and particle effects alongside UI
 public class PlayerGraphics : MonoBehaviour
 {
@@ -23,23 +20,24 @@ public class PlayerGraphics : MonoBehaviour
     [SerializeField] private float iFrameCycleTime = .1f;
     private bool _doFlicker = false;
 
-    private PlayerController _playerController;
-    private PlayerAttack _playerAttack;
+    [SerializeField] private PlayerController _playerController;
+    [SerializeField] private PlayerAttack _playerAttack;
 
     void Start()
     {
-        _playerController = GetComponent<PlayerController>();
-        _playerAttack = GetComponent<PlayerAttack>();
-
         _playerController.OnDash += PlayDashParticles;
         _playerController.OnParry += PlayParryParticles;
         _playerController.OnChangeDirection += FlipSprite;
         _playerController.OnAnimatorMovement += OnMovement;
         _playerController.RealOnJump += OnJump;
-        _playerAttack.OnHealthChange += DoInvulnAlpha;
-        _playerAttack.OnInvulnEnd += StopInvulnAlpha;
-        _playerAttack.OnHealthChange += UpdateHealthBar;
-        _playerAttack.OnChargeChange += UpdateChargeBar;
+        if (_playerAttack)
+        {
+            _playerAttack.OnHealthChange += DoInvulnAlpha;
+            _playerAttack.OnInvulnEnd += StopInvulnAlpha;
+            _playerAttack.OnHealthChange += UpdateHealthBar;
+            _playerAttack.OnChargeChange += UpdateChargeBar;
+        }
+        
     }
 
     void OnDestroy()
@@ -49,10 +47,14 @@ public class PlayerGraphics : MonoBehaviour
         _playerController.OnChangeDirection -= FlipSprite;
         _playerController.OnAnimatorMovement -= OnMovement;
         _playerController.RealOnJump -= OnJump;
-        _playerAttack.OnHealthChange -= DoInvulnAlpha;
-        _playerAttack.OnInvulnEnd -= StopInvulnAlpha;
-        _playerAttack.OnHealthChange -= UpdateHealthBar;
-        _playerAttack.OnChargeChange -= UpdateChargeBar;
+        if (_playerAttack)
+        {
+            _playerAttack.OnHealthChange -= DoInvulnAlpha;
+            _playerAttack.OnInvulnEnd -= StopInvulnAlpha;
+            _playerAttack.OnHealthChange -= UpdateHealthBar;
+            _playerAttack.OnChargeChange -= UpdateChargeBar;
+        }
+        
     }
 
     #region Sprite Management
@@ -74,11 +76,15 @@ public class PlayerGraphics : MonoBehaviour
 
     void DoInvulnAlpha(int changeHealth, int maxHealth)
     {
-        //check if it's damage and not healing by comparing fill
-        if (_healthBar.fillAmount > (float)changeHealth / maxHealth)
+        if (_healthBar)
         {
-            StartCoroutine(DoIFrameFlicker());
+            //check if it's damage and not healing by comparing fill
+            if (_healthBar.fillAmount > (float)changeHealth / maxHealth)
+            {
+                StartCoroutine(DoIFrameFlicker());
+            }
         }
+        
     }
 
     void StopInvulnAlpha()
@@ -105,25 +111,37 @@ public class PlayerGraphics : MonoBehaviour
     #region UI mangement
     void UpdateHealthBar(int changeHealth, int maxHealth)
     {
-        _healthBar.fillAmount = (float)changeHealth / maxHealth;
+        if (_healthBar)
+        {
+            _healthBar.fillAmount = (float)changeHealth / maxHealth;
+        } 
     }
 
     void UpdateChargeBar(int changeMana, int maxMana)
     {
-        _chargeBar.fillAmount = (float)changeMana / maxMana;
+        if (_chargeBar)
+        {
+            _chargeBar.fillAmount = (float)changeMana / maxMana;
+        }
     }
 
     #endregion
 
     #region  Particle System Management
     void PlayDashParticles()
-    {
-        _dashParticles.Play();
+    {   
+        if (_dashParticles)
+        {
+            _dashParticles.Play();
+        }
     }
     
     void PlayParryParticles()
     {
-        _parryParticles.Play();
+        if (_parryParticles)
+        {
+            _parryParticles.Play();
+        }
     }
     
     #endregion

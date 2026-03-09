@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 8d01906d638a31948b58f0a7ead5d2d0
+guid: 677a3162842294949b8cf445bec2f7fe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6882592171878855536
-    second: katejump_0
+      213: 990651313883370618
+    second: katewalk_0
   - first:
-      213: -7319474365281856753
-    second: katejump_1
+      213: -2500554772267644185
+    second: katewalk_1
   - first:
-      213: -7231760444549932068
-    second: katejump_2
+      213: 4763032791694905048
+    second: katewalk_2
   - first:
-      213: -2558928682424792508
-    second: katejump_3
+      213: -6518930643545508412
+    second: katewalk_3
   - first:
-      213: 6212615661404204855
-    second: katejump_4
+      213: -2523583160930344268
+    second: katewalk_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 164
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -112,111 +112,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: katejump_0
+      name: katewalk_1
       rect:
         serializedVersion: 2
-        x: 236
-        y: 457
-        width: 322
-        height: 599
+        x: 139
+        y: 399
+        width: 480
+        height: 894
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09cc64d92ee1c70a0800000000000000
-      internalID: -6882592171878855536
+      spriteID: 7ea4491eeae3c4dd0800000000000000
+      internalID: -2500554772267644185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: katejump_1
+      name: katewalk_2
       rect:
         serializedVersion: 2
-        x: 641
-        y: 443
-        width: 284
-        height: 547
+        x: 736
+        y: 379
+        width: 390
+        height: 925
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f031cc258d00c6a90800000000000000
-      internalID: -7319474365281856753
+      spriteID: 8de0382a611b91240800000000000000
+      internalID: 4763032791694905048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: katejump_2
+      name: katewalk_3
       rect:
         serializedVersion: 2
-        x: 1057
-        y: 712
-        width: 274
-        height: 541
+        x: 1235
+        y: 360
+        width: 499
+        height: 934
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cdb51e1f030a3ab90800000000000000
-      internalID: -7231760444549932068
+      spriteID: 4c5bf045e1b1885a0800000000000000
+      internalID: -6518930643545508412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: katejump_3
+      name: katewalk_4
       rect:
         serializedVersion: 2
-        x: 1504
-        y: 425
-        width: 284
-        height: 667
+        x: 1818
+        y: 337
+        width: 409
+        height: 946
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44a038ecbebdc7cd0800000000000000
-      internalID: -2558928682424792508
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: katejump_4
-      rect:
-        serializedVersion: 2
-        x: 1922
-        y: 425
-        width: 322
-        height: 599
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 73fa6083705a73650800000000000000
-      internalID: 6212615661404204855
+      spriteID: 4b2e6935c7e6afcd0800000000000000
+      internalID: -2523583160930344268
       vertices: []
       indices: 
       edges: []
@@ -225,7 +203,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1676f72e5de22da42b7afa6662583fb3
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +213,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      katejump_0: -6882592171878855536
-      katejump_1: -7319474365281856753
-      katejump_2: -7231760444549932068
-      katejump_3: -2558928682424792508
-      katejump_4: 6212615661404204855
+      katewalk_0: 990651313883370618
+      katewalk_1: -2500554772267644185
+      katewalk_2: 4763032791694905048
+      katewalk_3: -6518930643545508412
+      katewalk_4: -2523583160930344268
+      katewalk_5: 1538920718
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

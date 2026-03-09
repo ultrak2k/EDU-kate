@@ -344,6 +344,8 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 2763366488797862680}
   _animator: {fileID: 7018599860328719522}
   iFrameCycleTime: 0.1
+  _playerController: {fileID: 8936600614059271819}
+  _playerAttack: {fileID: 531236636739904801}
 --- !u!114 &642982293294832760
 MonoBehaviour:
   m_ObjectHideFlags: 0
