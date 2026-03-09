@@ -18,6 +18,8 @@ public class Parallax : MonoBehaviour
     private Dictionary<SpriteRenderer, float> _bgLayerStartingPosY = new();
     private Camera _camera;
     private int _furthestLayer = 0;
+
+    public int OffsetInt;
     
 
 
@@ -82,7 +84,7 @@ public class Parallax : MonoBehaviour
             {
                 float newX = layer.transform.position.x + layer.size.x / 2;
                 biggestX = biggestX < newX ? newX : biggestX;
-                biggestY = layer.transform.position.y;
+                biggestY = layer.transform.position.y - ((layer.size.y / 2) + OffsetInt);
             }
         }
         return new (biggestX, biggestY, 0);

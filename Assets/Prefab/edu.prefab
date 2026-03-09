@@ -149,7 +149,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -22.26, y: -3.75, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8360114312535201272}
@@ -231,8 +231,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 4
-  m_LinearDamping: 0
+  m_Mass: 3.7
+  m_LinearDamping: 0.1
   m_AngularDamping: 0.05
   m_GravityScale: 1.2
   m_Material: {fileID: 6200000, guid: 68256cb1fcc55074882699e2afbd7996, type: 2}
@@ -258,9 +258,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b351d8fc540834d8640c67bfe2332b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 4.5
+  moveSpeed: 4
   _canReverse: 1
-  jumpForce: 6.5
+  jumpForce: 7
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -440,6 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 455021979372300809}
   - component: {fileID: 7823512703708574106}
+  - component: {fileID: 7275687425522281550}
   m_Layer: 7
   m_Name: ParryCollider
   m_TagString: Untagged
@@ -464,6 +465,42 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &7823512703708574106
 CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8109077747872872333}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 1.01
+--- !u!70 &7275687425522281550
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -496,8 +533,9 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 1.01
+  m_Offset: {x: -0.07, y: 0.42}
+  m_Size: {x: 2.32, y: 3.2929688}
+  m_Direction: 0
 --- !u!1 &8222692998869911711
 GameObject:
   m_ObjectHideFlags: 0
