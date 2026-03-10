@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: 68032ea07304b9e4f9f5158cf54089b3
+guid: 0f13cef651a1ce448a4c6921cf13b3bf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3460788136002281592
-    second: UiuNderlay_0
+      213: -458998575348427108
+    second: NARSpeech_0
   - first:
-      213: 2466947512376171701
-    second: UiuNderlay_1
+      213: 4560853909243205255
+    second: NARSpeech_1
   - first:
-      213: 1189865587146442307
-    second: UiuNderlay_2
-  - first:
-      213: -1706214662674690721
-    second: UiuNderlay_3
-  - first:
-      213: 1451583947779562199
-    second: UiuNderlay_4
-  - first:
-      213: -8366533386903275067
-    second: UiuNderlay_5
+      213: 4396378624122347383
+    second: NARSpeech_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UiuNderlay_0
+      name: NARSpeech_0
       rect:
         serializedVersion: 2
-        x: 433
-        y: 1064
-        width: 251
-        height: 325
+        x: 15
+        y: 0
+        width: 730
+        height: 579
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88f92beb68fc8ffc0800000000000000
-      internalID: -3460788136002281592
+      spriteID: c9652f34a3f41a9f0800000000000000
+      internalID: -458998575348427108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_1
+      name: NARSpeech_1
       rect:
         serializedVersion: 2
-        x: 596
-        y: 1234
-        width: 807
-        height: 172
+        x: 128
+        y: 0
+        width: 14
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5bc17ba21bb5c3220800000000000000
-      internalID: 2466947512376171701
+      spriteID: 78694ec47786b4f30800000000000000
+      internalID: 4560853909243205255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_2
+      name: NARSpeech_2
       rect:
         serializedVersion: 2
-        x: 284
-        y: 817
-        width: 261
-        height: 341
+        x: 149
+        y: 6
+        width: 14
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,74 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34643548270438010800000000000000
-      internalID: 1189865587146442307
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UiuNderlay_3
-      rect:
-        serializedVersion: 2
-        x: 582
-        y: 829
-        width: 244
-        height: 316
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5d46b0edce4258e0800000000000000
-      internalID: -1706214662674690721
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UiuNderlay_4
-      rect:
-        serializedVersion: 2
-        x: 742
-        y: 1004
-        width: 659
-        height: 171
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7da5f01e8ef052410800000000000000
-      internalID: 1451583947779562199
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UiuNderlay_5
-      rect:
-        serializedVersion: 2
-        x: 433
-        y: 599
-        width: 254
-        height: 328
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5c93f20663a14eb80800000000000000
-      internalID: -8366533386903275067
+      spriteID: 77fdeecc013130d30800000000000000
+      internalID: 4396378624122347383
       vertices: []
       indices: 
       edges: []
@@ -250,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      UiuNderlay_0: -3460788136002281592
-      UiuNderlay_1: 2466947512376171701
-      UiuNderlay_2: 1189865587146442307
-      UiuNderlay_3: -1706214662674690721
-      UiuNderlay_4: 1451583947779562199
-      UiuNderlay_5: -8366533386903275067
+      NARSpeech_0: -458998575348427108
+      NARSpeech_1: 4560853909243205255
+      NARSpeech_2: 4396378624122347383
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

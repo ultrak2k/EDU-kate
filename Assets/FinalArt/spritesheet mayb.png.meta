@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 68032ea07304b9e4f9f5158cf54089b3
+guid: 6f4a633a4b1617f4eb460e597395245d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3460788136002281592
-    second: UiuNderlay_0
+      213: -5455899506036507406
+    second: spritesheet mayb_0
   - first:
-      213: 2466947512376171701
-    second: UiuNderlay_1
+      213: -3970303443668440449
+    second: spritesheet mayb_1
   - first:
-      213: 1189865587146442307
-    second: UiuNderlay_2
+      213: -6341594223705041623
+    second: spritesheet mayb_2
   - first:
-      213: -1706214662674690721
-    second: UiuNderlay_3
+      213: 2944255094047278201
+    second: spritesheet mayb_3
   - first:
-      213: 1451583947779562199
-    second: UiuNderlay_4
+      213: 5353285723864632180
+    second: spritesheet mayb_4
   - first:
-      213: -8366533386903275067
-    second: UiuNderlay_5
+      213: 1263000961762584258
+    second: spritesheet mayb_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +61,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,133 +115,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UiuNderlay_0
+      name: spritesheet mayb_0
       rect:
         serializedVersion: 2
-        x: 433
-        y: 1064
-        width: 251
-        height: 325
+        x: 607
+        y: 476
+        width: 647
+        height: 749
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88f92beb68fc8ffc0800000000000000
-      internalID: -3460788136002281592
+      spriteID: 2fcf67c4e40c844b0800000000000000
+      internalID: -5455899506036507406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_1
+      name: spritesheet mayb_1
       rect:
         serializedVersion: 2
-        x: 596
-        y: 1234
-        width: 807
-        height: 172
+        x: 2534
+        y: 471
+        width: 323
+        height: 759
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5bc17ba21bb5c3220800000000000000
-      internalID: 2466947512376171701
+      spriteID: f7ae1a5bd06a6e8c0800000000000000
+      internalID: -3970303443668440449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_2
+      name: spritesheet mayb_2
       rect:
         serializedVersion: 2
-        x: 284
-        y: 817
-        width: 261
-        height: 341
+        x: 2887
+        y: 471
+        width: 246
+        height: 543
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34643548270438010800000000000000
-      internalID: 1189865587146442307
+      spriteID: 925546a17a12ef7a0800000000000000
+      internalID: -6341594223705041623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_3
+      name: spritesheet mayb_3
       rect:
         serializedVersion: 2
-        x: 582
-        y: 829
+        x: 4419
+        y: 462
+        width: 618
+        height: 768
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97482d0a8681cd820800000000000000
+      internalID: 2944255094047278201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet mayb_4
+      rect:
+        serializedVersion: 2
+        x: 6364
+        y: 448
+        width: 341
+        height: 777
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47b0f10c001ba4a40800000000000000
+      internalID: 5353285723864632180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet mayb_5
+      rect:
+        serializedVersion: 2
+        x: 6724
+        y: 471
         width: 244
-        height: 316
+        height: 543
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5d46b0edce4258e0800000000000000
-      internalID: -1706214662674690721
+      spriteID: 2c6e5dcdea4178110800000000000000
+      internalID: 1263000961762584258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_4
+      name: spritesheet mayb_6
       rect:
         serializedVersion: 2
-        x: 742
-        y: 1004
-        width: 659
-        height: 171
+        x: 2534
+        y: 471
+        width: 599
+        height: 759
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7da5f01e8ef052410800000000000000
-      internalID: 1451583947779562199
+      spriteID: 3ab7fcf837c6b7a4e93fe1a2161d6ecb
+      internalID: -291533805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_5
+      name: spritesheet mayb_7
       rect:
         serializedVersion: 2
-        x: 433
-        y: 599
-        width: 254
-        height: 328
+        x: 6364
+        y: 448
+        width: 604
+        height: 777
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5c93f20663a14eb80800000000000000
-      internalID: -8366533386903275067
+      spriteID: fd5444cd49256fc4f8338279f15a6a52
+      internalID: 1373152155
       vertices: []
       indices: 
       edges: []
@@ -250,7 +294,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: b163c7408d0e5a94b98e7a0861d7595e
     internalID: 0
     vertices: []
     indices: 
@@ -258,14 +302,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceOnImport
+        value: False
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      UiuNderlay_0: -3460788136002281592
-      UiuNderlay_1: 2466947512376171701
-      UiuNderlay_2: 1189865587146442307
-      UiuNderlay_3: -1706214662674690721
-      UiuNderlay_4: 1451583947779562199
-      UiuNderlay_5: -8366533386903275067
+      spritesheet mayb_0: -5455899506036507406
+      spritesheet mayb_1: -3970303443668440449
+      spritesheet mayb_2: -6341594223705041623
+      spritesheet mayb_3: 2944255094047278201
+      spritesheet mayb_4: 5353285723864632180
+      spritesheet mayb_5: 1263000961762584258
+      spritesheet mayb_6: -291533805
+      spritesheet mayb_7: 1373152155
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

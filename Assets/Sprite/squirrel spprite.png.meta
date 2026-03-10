@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 68032ea07304b9e4f9f5158cf54089b3
+guid: a3cfbe67f5efe4644b054a3c9f7cd414
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3460788136002281592
-    second: UiuNderlay_0
+      213: 3524282578365709523
+    second: squirrel spprite_0
   - first:
-      213: 2466947512376171701
-    second: UiuNderlay_1
+      213: 8057362259572811062
+    second: squirrel spprite_1
   - first:
-      213: 1189865587146442307
-    second: UiuNderlay_2
+      213: -8786035111765186496
+    second: squirrel spprite_2
   - first:
-      213: -1706214662674690721
-    second: UiuNderlay_3
+      213: 2217560247821091743
+    second: squirrel spprite_3
   - first:
-      213: 1451583947779562199
-    second: UiuNderlay_4
+      213: -1207921925466445922
+    second: squirrel spprite_4
   - first:
-      213: -8366533386903275067
-    second: UiuNderlay_5
+      213: 2150269804606979628
+    second: squirrel spprite_5
+  - first:
+      213: -8078848695701602659
+    second: squirrel spprite_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +64,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UiuNderlay_0
+      name: squirrel spprite_0
       rect:
         serializedVersion: 2
-        x: 433
-        y: 1064
-        width: 251
-        height: 325
+        x: 258
+        y: 1126
+        width: 1144
+        height: 995
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88f92beb68fc8ffc0800000000000000
-      internalID: -3460788136002281592
+      spriteID: 3dcf5932554c8e030800000000000000
+      internalID: 3524282578365709523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_1
+      name: squirrel spprite_1
       rect:
         serializedVersion: 2
-        x: 596
-        y: 1234
-        width: 807
-        height: 172
+        x: 2172
+        y: 1126
+        width: 1158
+        height: 875
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5bc17ba21bb5c3220800000000000000
-      internalID: 2466947512376171701
+      spriteID: 635e97c094081df60800000000000000
+      internalID: 8057362259572811062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_2
+      name: squirrel spprite_2
       rect:
         serializedVersion: 2
-        x: 284
-        y: 817
-        width: 261
-        height: 341
+        x: 4159
+        y: 1122
+        width: 1103
+        height: 771
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34643548270438010800000000000000
-      internalID: 1189865587146442307
+      spriteID: 0486023cd9bb11680800000000000000
+      internalID: -8786035111765186496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_3
+      name: squirrel spprite_3
       rect:
         serializedVersion: 2
-        x: 582
-        y: 829
-        width: 244
-        height: 316
+        x: 6295
+        y: 1238
+        width: 1043
+        height: 922
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5d46b0edce4258e0800000000000000
-      internalID: -1706214662674690721
+      spriteID: f934767db4b56ce10800000000000000
+      internalID: 2217560247821091743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_4
+      name: squirrel spprite_4
       rect:
         serializedVersion: 2
-        x: 742
-        y: 1004
-        width: 659
-        height: 171
+        x: 535
+        y: 158
+        width: 1043
+        height: 923
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7da5f01e8ef052410800000000000000
-      internalID: 1451583947779562199
+      spriteID: e97aa2c98699c3fe0800000000000000
+      internalID: -1207921925466445922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiuNderlay_5
+      name: squirrel spprite_5
       rect:
         serializedVersion: 2
-        x: 433
-        y: 599
-        width: 254
-        height: 328
+        x: 2279
+        y: 226
+        width: 1099
+        height: 855
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +243,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c93f20663a14eb80800000000000000
-      internalID: -8366533386903275067
+      spriteID: c2ef8d2aefa47dd10800000000000000
+      internalID: 2150269804606979628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squirrel spprite_6
+      rect:
+        serializedVersion: 2
+        x: 3839
+        y: 700
+        width: 383
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9ef3923ae922ef80800000000000000
+      internalID: -8078848695701602659
       vertices: []
       indices: 
       edges: []
@@ -250,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      UiuNderlay_0: -3460788136002281592
-      UiuNderlay_1: 2466947512376171701
-      UiuNderlay_2: 1189865587146442307
-      UiuNderlay_3: -1706214662674690721
-      UiuNderlay_4: 1451583947779562199
-      UiuNderlay_5: -8366533386903275067
+      squirrel spprite_0: 3524282578365709523
+      squirrel spprite_1: 8057362259572811062
+      squirrel spprite_2: -8786035111765186496
+      squirrel spprite_3: 2217560247821091743
+      squirrel spprite_4: -1207921925466445922
+      squirrel spprite_5: 2150269804606979628
+      squirrel spprite_6: -8078848695701602659
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

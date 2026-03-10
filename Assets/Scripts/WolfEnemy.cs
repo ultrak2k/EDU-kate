@@ -33,10 +33,12 @@ public class WolfEnemy : MonoBehaviour, IDamageable
 
     [Header("Movement")]
     [SerializeField] private float _moveSpeed = 4f;
+    [SerializeField] private float _morphMoveSpeed = 2f;  // speed during the morph animation
     [SerializeField] private float _stopDistance = 0.1f;
 
     [Header("Orb / Parry")]
     [SerializeField] private float _orbLifetime = 2f;
+    [SerializeField] private float _unMorphPause = 1f;
 
     [Header("Explosion AOE")]
     [SerializeField] private float _explosionRadius = 2.5f;
@@ -48,7 +50,7 @@ public class WolfEnemy : MonoBehaviour, IDamageable
     [SerializeField] private LayerMask _damageLayerName;
     [SerializeField] private LayerMask _parryableLayerName;
 
-    private enum State { Idle, Chasing, Morphing, Orb, Dead }
+    private enum State { Idle, Chasing, Morphing, Orb, UnMorphing, Dead }
 
     private State _state = State.Idle;
     private Rigidbody2D _rb;
@@ -56,6 +58,7 @@ public class WolfEnemy : MonoBehaviour, IDamageable
     private Transform _player;
     private Collider2D _col;
     private float _orbTimer;
+    private float _orbDirection;   // locked in when morph begins
 
     void Awake()
     {
@@ -104,6 +107,10 @@ public class WolfEnemy : MonoBehaviour, IDamageable
         {
             MoveTowardPlayer();
         }
+        else if (_state == State.Morphing || _state == State.Orb)
+        {
+            MoveAsOrb();
+        }
     }
 
     void UpdateIdle()
@@ -130,19 +137,21 @@ public class WolfEnemy : MonoBehaviour, IDamageable
 
         if (_orbTimer <= 0f)
         {
-            Explode();
+            StartCoroutine(UnMorphToWolf());
         }
     }
 
     void MoveTowardPlayer()
     {
-        if (_state != State.Chasing)
-        {
-            return;
-        }
-
         float dir = Mathf.Sign(_player.position.x - transform.position.x);
         _rb.linearVelocity = new Vector2(dir * _moveSpeed, _rb.linearVelocity.y);
+    }
+
+    // Orb keeps rolling in the direction the wolf was already heading
+    void MoveAsOrb()
+    {
+        float speed = _state == State.Morphing ? _morphMoveSpeed : _moveSpeed;
+        _rb.linearVelocity = new Vector2(_orbDirection * speed, _rb.linearVelocity.y);
     }
 
     void FacePlayer()
@@ -152,7 +161,6 @@ public class WolfEnemy : MonoBehaviour, IDamageable
         if (Mathf.Abs(dir) > _stopDistance)
         {
             Vector3 s = transform.localScale;
-            // Negate the sign so the sprite faces toward the player
             s.x = Mathf.Abs(s.x) * -Mathf.Sign(dir);
             transform.localScale = s;
         }
@@ -173,6 +181,9 @@ public class WolfEnemy : MonoBehaviour, IDamageable
 
         _state = State.Morphing;
 
+        // Lock in the direction the wolf was running toward the player
+        _orbDirection = Mathf.Sign(_player.position.x - transform.position.x);
+
         _anim.SetBool("IsRunning", false);
         _anim.SetBool("IsMorphing", true);
 
@@ -186,6 +197,29 @@ public class WolfEnemy : MonoBehaviour, IDamageable
         _orbTimer = _orbLifetime;
     }
 
+    IEnumerator UnMorphToWolf()
+    {
+        if (_state != State.Orb)
+        {
+            yield break;
+        }
+
+        _state = State.UnMorphing;
+
+        _rb.linearVelocity = Vector2.zero;
+
+        gameObject.layer = _damageLayerName;
+
+        _anim.SetTrigger("UnMorph");
+
+        yield return new WaitForSeconds(GetAnimationClipLength("UnMorph"));
+
+        yield return new WaitForSeconds(_unMorphPause);
+
+        FacePlayer();
+        EnterChase();
+    }
+    //redundant but useful later prob
     void Explode()
     {
         if (_state == State.Dead)

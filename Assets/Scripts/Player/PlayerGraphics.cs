@@ -12,7 +12,10 @@ public class PlayerGraphics : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private Image _healthBar;
+    [SerializeField] private SpriteRenderer HP;
     [SerializeField] private Image _chargeBar;
+    [SerializeField] private SpriteRenderer NRG;
+
 
     [Header("Sprite & Animation")]
     [SerializeField] private SpriteRenderer _spriteRenderer;

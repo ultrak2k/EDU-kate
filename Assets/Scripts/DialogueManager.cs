@@ -145,6 +145,8 @@ public class DialogueManager : MonoBehaviour
                 if (EDUSprite != null)
                 {
                     EDUSprite.SetActive(true);
+                    KateHerself.enabled = true;
+                    KatHologramEffect.SetActive(true);
                 }
                 break;
 
@@ -152,9 +154,9 @@ public class DialogueManager : MonoBehaviour
             case Speaker.Kate:
                 if (KateSprite != null)
                 {
-                    KateHerself.enabled = true;
                     KateSprite.SetActive(true);
-                    KatHologramEffect.SetActive(true);
+                    
+                    
 
 
                 }
