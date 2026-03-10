@@ -24,6 +24,13 @@ public class PlayerAttack : MonoBehaviour, IDamageable
     [SerializeField] private int _maxCharge = 10;
     [SerializeField] private int _parryRechargeAmount = 1;
 
+    //kind of hackjob attack method, full game should have seperate scripts for it
+    [SerializeField] private DamageDealer _meleeTrigger;
+    [SerializeField] private float _meleeStartTime = 5f;
+    [SerializeField] private float _meleeDamagingTime = 5f;
+    [SerializeField] private int _chargeUse = 1;
+    [SerializeField] private float _maxScale = 1f;
+
     private PlayerController _playerController;
 
     public event Action<int, int> OnHealthChange; //int 1: current health | int 2 : max health
@@ -64,6 +71,13 @@ public class PlayerAttack : MonoBehaviour, IDamageable
             OnHealthChange?.Invoke(_health, _maxHealth);
         }
     }
+
+    public void PerformAttack()
+    {
+        _meleeTrigger.gameObject.SetActive(true);
+    }
+
+
 
     //makes player not take damage for specififed time        
     IEnumerator StartInvulnFrames()
