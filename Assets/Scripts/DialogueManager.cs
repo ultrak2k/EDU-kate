@@ -51,7 +51,8 @@ public class DialogueManager : MonoBehaviour
     public float typewriterSpeed = 0.03f;
 
 
-
+    public bool EndKateDialogue = false;
+    public GameObject Edu;
 
 
 
@@ -62,6 +63,12 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         SetAllSpritesInactive();
+
+        if(EndKateDialogue)
+        {
+            Edu.GetComponent<PlayerController>().enabled = false;
+            Edu.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // stop any movement
+        }
 
         if (continueButton != null)
             continueButton.onClick.AddListener(OnAdvance);
@@ -154,9 +161,11 @@ public class DialogueManager : MonoBehaviour
             case Speaker.Kate:
                 if (KateSprite != null)
                 {
+                    KateHerself.enabled = true;
                     KateSprite.SetActive(true);
-                    
-                    
+                    KatHologramEffect.SetActive(true);
+
+
 
 
                 }
@@ -184,6 +193,11 @@ public class DialogueManager : MonoBehaviour
     
     private void EndDialogue()
     {
+
+        if (EndKateDialogue)
+        {
+            Edu.GetComponent<PlayerController>().enabled = true;
+        }
         dialoguePanel.SetActive(false);
         dialogueBodyTextObject.SetActive(false);
         //NextSceneButton.SetActive(true);

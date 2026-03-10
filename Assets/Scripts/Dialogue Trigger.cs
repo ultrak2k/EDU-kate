@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Dialogue Event")]
     public DialogueManager DialogueEvent;
     [SerializeField] private GameObject _levelToSpawn;
+
+    public bool FakeLevelShift;
+    public string SceneToLoad = "SecondLevel";
 
     private bool hasTriggered = false;
 
@@ -31,7 +35,14 @@ public class DialogueTrigger : MonoBehaviour
             PlayerController playerController = other.GetComponentInParent<PlayerController>();
             if (playerController != null)
             {
-                PlayDialogue(DialogueEvent);
+                if(FakeLevelShift)
+                {
+                    SceneManager.LoadScene(SceneToLoad);
+                }
+                else 
+                {
+                    PlayDialogue(DialogueEvent);
+                }
             }
             else
             {

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 598931513027298257}
   - component: {fileID: 6988055958590906850}
   - component: {fileID: 5498204917435094894}
+  - component: {fileID: -2924517066325203775}
   m_Layer: 0
   m_Name: projectileROb_0
   m_TagString: Untagged
@@ -182,3 +183,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.45, y: 1.59}
   m_EdgeRadius: 0
+--- !u!114 &-2924517066325203775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7197952963910767479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c5c072e6460b844989919b2b3bcfbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileDeath

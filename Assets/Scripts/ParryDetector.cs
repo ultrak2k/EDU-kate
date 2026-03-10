@@ -71,7 +71,7 @@ public class ParryDetector : MonoBehaviour
             // Ignore self
             if (hit == parryCollider || hit == playerCollider) continue;
 
-            // Valid parry hit � apply bounce and end the parry window immediately
+            // Valid parry hit apply bounce and end the parry window immediately
             ApplyMiniJump();
             _pc.hasParried = false; //allow for chain parries on sucessfull parry.
             _pc.InvokeParry();
