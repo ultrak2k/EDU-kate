@@ -28,7 +28,8 @@ public class WolfEnemy : MonoBehaviour, IDamageable
     [SerializeField] private int _health = 3;
 
     [Header("Detection")]
-    [SerializeField] private float _aggroRange = 6f;
+    [SerializeField] private float _aggroRangeX = 6f;    // horizontal reach either side
+    [SerializeField] private float _aggroRangeY = 1.5f;  // vertical tolerance above/below
     [SerializeField] private float _morphRange = 1.5f;
 
     [Header("Movement")]
@@ -60,7 +61,7 @@ public class WolfEnemy : MonoBehaviour, IDamageable
     private float _orbTimer;
     private float _orbDirection;   // locked in when morph begins
 
-    void Awake()
+    void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
@@ -115,7 +116,7 @@ public class WolfEnemy : MonoBehaviour, IDamageable
 
     void UpdateIdle()
     {
-        if (DistanceToPlayer() <= _aggroRange)
+        if (IsPlayerInDetectionZone())
         {
             EnterChase();
         }
@@ -125,7 +126,7 @@ public class WolfEnemy : MonoBehaviour, IDamageable
     {
         FacePlayer();
 
-        if (DistanceToPlayer() <= _morphRange)
+        if (Mathf.Abs(_player.position.x - transform.position.x) <= _morphRange)
         {
             StartCoroutine(MorphToOrb());
         }
@@ -219,7 +220,7 @@ public class WolfEnemy : MonoBehaviour, IDamageable
         FacePlayer();
         EnterChase();
     }
-    //redundant but useful later prob
+    //ignore this shit
     void Explode()
     {
         if (_state == State.Dead)
@@ -269,16 +270,18 @@ public class WolfEnemy : MonoBehaviour, IDamageable
         Destroy(gameObject, 0.5f);
     }
 
+    bool IsPlayerInDetectionZone()
+    {
+        if (_player == null) return false;
+        float dx = Mathf.Abs(_player.position.x - transform.position.x);
+        float dy = Mathf.Abs(_player.position.y - transform.position.y);
+        return dx <= _aggroRangeX && dy <= _aggroRangeY;
+    }
+
+    // Still used for morph range and gizmo reference
     float DistanceToPlayer()
     {
-        if (_player != null)
-        {
-            return Vector2.Distance(transform.position, _player.position);
-        }
-        else
-        {
-            return float.MaxValue;
-        }
+        return _player != null ? Vector2.Distance(transform.position, _player.position) : float.MaxValue;
     }
 
     float GetAnimationClipLength(string clipName)
@@ -302,8 +305,9 @@ public class WolfEnemy : MonoBehaviour, IDamageable
 
     void OnDrawGizmosSelected()
     {
+        
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, _aggroRange);
+        Gizmos.DrawWireCube(transform.position, new Vector3(_aggroRangeX * 2f, _aggroRangeY * 2f, 0f));
 
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, _morphRange);

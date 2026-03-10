@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ParryDetector
   parryCollider: {fileID: 6814284527067970151}
   playerCollider: {fileID: 3556033600310487183}
-  miniJumpMultiplier: 0.7
+  miniJumpMultiplier: 0.8
   parryableLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -228,7 +228,9 @@ MonoBehaviour:
   _dashParticles: {fileID: 3156282347677563404}
   _parryParticles: {fileID: 1532597464044724141}
   _healthBar: {fileID: 0}
+  HP: {fileID: 0}
   _chargeBar: {fileID: 0}
+  NRG: {fileID: 0}
   _spriteRenderer: {fileID: 6097318740168930965}
   _animator: {fileID: 404092605704811429}
   iFrameCycleTime: 0.1

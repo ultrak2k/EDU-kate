@@ -42,11 +42,12 @@ public class SquirrelEnemy : MonoBehaviour, IDamageable
     private Transform _player;
     private float _lastThrowTime = -99f;
 
-    void Awake()
+    void Start()
     {
         _anim = GetComponent<Animator>();
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
 
         if (playerObj != null)
         {

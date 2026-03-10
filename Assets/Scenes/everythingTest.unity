@@ -4966,7 +4966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1274145902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4980,7 +4980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   DialogueEvent: {fileID: 2145614390}
-  _levelToSpawn: {fileID: 4185318253025395778, guid: a2a3580b7733dc044a29fd89a026c4ee, type: 3}
+  _levelToSpawn: {fileID: 6028093632075803015, guid: a0daf0edf33b2ee4eb4fe44b9bcccead, type: 3}
 --- !u!61 &1274145903
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5036,7 +5036,7 @@ Transform:
   m_GameObject: {fileID: 1274145901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.48, y: 1.35, z: 0}
+  m_LocalPosition: {x: -17.5, y: 1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7201,7 +7201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1591964786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8984,14 +8984,20 @@ MonoBehaviour:
   _parallax: {fileID: 504752828}
   _levelToSpawn: {fileID: 0}
   lines:
-  - text: Hi I am kate
-    speaker: 2
-  - text: WSG kate im edu
+  - text: After another scan, EDU quickly calls Kate.
     speaker: 1
-  - text: Lets fuck shit up
+  - text: Hey buddy, you almost here?
     speaker: 2
-  - text: Hell yeah
+  - text: Negative. Multiple Experimental energy sources detected.
     speaker: 1
+  - text: Multiple? I only left one inside I am sure of it.
+    speaker: 2
+  - text: If you encounter any disturbance, harness it for those upgrades we installed.
+    speaker: 2
+  - text: ' Affirmative. '
+    speaker: 1
+  - text: Stay safe E.D.U.
+    speaker: 2
   speakerNameText: {fileID: 359480074723187480}
   dialogueBodyText: {fileID: 8906236971201518438}
   dialogueBodyTextObject: {fileID: 6827410076623598257}
