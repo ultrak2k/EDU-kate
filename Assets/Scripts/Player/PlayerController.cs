@@ -94,6 +94,11 @@ public class PlayerController : MonoBehaviour
             
     }
 
+    public float GetFacingDirection()
+    {
+        return facingDirection;
+    }
+
     void OnJump(InputValue value)
     {
 

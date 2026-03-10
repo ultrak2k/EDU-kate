@@ -9144,6 +9144,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 544580618842515124, guid: 9def0ef8a0213e248a56735249dbcd91, type: 3}
+      propertyPath: _meleeChargeUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 544580618842515124, guid: 9def0ef8a0213e248a56735249dbcd91, type: 3}
+      propertyPath: _rangedChargeUse
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1260891515005513356, guid: 9def0ef8a0213e248a56735249dbcd91, type: 3}
       propertyPath: m_Name
       value: edu

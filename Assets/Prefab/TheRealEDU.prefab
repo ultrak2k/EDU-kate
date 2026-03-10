@@ -277,11 +277,16 @@ MonoBehaviour:
   _charge: 0
   _maxCharge: 10
   _parryRechargeAmount: 2
-  _meleeTrigger: {fileID: 0}
-  _meleeStartTime: 5
-  _meleeDamagingTime: 5
-  _chargeUse: 1
-  _maxScale: 3
+  _meleeTrigger: {fileID: 8799902117219401996}
+  _meleeStartTime: 1
+  _meleeLingerTime: 0.3
+  _meleeChargeUse: 1
+  _maxScale: 5
+  _bulletPrefab: {fileID: 598931513027298257, guid: 3dfdd3765b58cbf4daf550e0c7eabb59, type: 3}
+  _rangedChargeUse: 1
+  _rangedCooldown: 0.5
+  _canFire: 1
+  bulletSpeed: 10
 --- !u!61 &1207336664572449283
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -506,13 +511,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6258793570777186694}
   - component: {fileID: 6731425837994162600}
+  - component: {fileID: 8799902117219401996}
   m_Layer: 7
-  m_Name: Circle
+  m_Name: AttackCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6258793570777186694
 Transform:
   m_ObjectHideFlags: 0
@@ -575,10 +581,10 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.9097693, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.9097693, a: 0.44705883}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -587,6 +593,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &8799902117219401996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579809224713492336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4139eec59909e43abbb86c0077a570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  _team: 1
+  _hitBehaviour: 2
+  _damageAmount: 2
 --- !u!1 &5201408311990401156
 GameObject:
   m_ObjectHideFlags: 0
