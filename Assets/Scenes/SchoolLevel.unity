@@ -687,7 +687,7 @@ MonoBehaviour:
     speaker: 2
   - text: Kate, you know that requires the full version of this game.
     speaker: 1
-  - text: That's right wishlist E.D.U & Kate on steam now!
+  - text: You're saying everyone should wishlist this game on steam?
     speaker: 2
   - text: ' Affirmative. '
     speaker: 1
@@ -705,6 +705,9 @@ MonoBehaviour:
   typewriterSpeed: 0.03
   EndKateDialogue: 1
   Edu: {fileID: 909217471}
+  DialogueAudioClip: {fileID: 8300000, guid: a175f8ad87ab5434d87c8927926c5b98, type: 3}
+  KateHologramStart: {fileID: 8300000, guid: 993d047a5b0626d4ab49a442833b61c3, type: 3}
+  KateHologramEnd: {fileID: 8300000, guid: dc08e28317c927d49a4f356f308eb349, type: 3}
 --- !u!4 &111749799
 Transform:
   m_ObjectHideFlags: 0
@@ -3504,6 +3507,9 @@ MonoBehaviour:
   typewriterSpeed: 0.03
   EndKateDialogue: 0
   Edu: {fileID: 0}
+  DialogueAudioClip: {fileID: 0}
+  KateHologramStart: {fileID: 0}
+  KateHologramEnd: {fileID: 0}
 --- !u!1 &789570703
 GameObject:
   m_ObjectHideFlags: 0
@@ -4653,8 +4659,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Thank you to all that put so much time and effort into this project <3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4cb55ab3f5bc4324ea075ef08f0e003a, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 4cb55ab3f5bc4324ea075ef08f0e003a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4685,7 +4691,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4717,7 +4723,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 170.02574, w: 30.746084}
+  m_margin: {x: 0, y: -1.372488, z: 172.13731, w: 30.746084}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8992,7 +8998,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: d184e18fb0e1e0f46befb73b7e8ba38e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10583,6 +10589,9 @@ MonoBehaviour:
   typewriterSpeed: 0.03
   EndKateDialogue: 0
   Edu: {fileID: 0}
+  DialogueAudioClip: {fileID: 0}
+  KateHologramStart: {fileID: 0}
+  KateHologramEnd: {fileID: 0}
 --- !u!4 &2145614391
 Transform:
   m_ObjectHideFlags: 0
@@ -10743,7 +10752,7 @@ PrefabInstance:
       objectReference: {fileID: 374090510}
     - target: {fileID: 2244741692251236746, guid: 9def0ef8a0213e248a56735249dbcd91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.46
+      value: -21.26
       objectReference: {fileID: 0}
     - target: {fileID: 2244741692251236746, guid: 9def0ef8a0213e248a56735249dbcd91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10751,7 +10760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2244741692251236746, guid: 9def0ef8a0213e248a56735249dbcd91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2244741692251236746, guid: 9def0ef8a0213e248a56735249dbcd91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10787,11 +10796,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6097318740168930965, guid: 9def0ef8a0213e248a56735249dbcd91, type: 3}
       propertyPath: m_SortingOrder
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7351994893942365029, guid: 9def0ef8a0213e248a56735249dbcd91, type: 3}
       propertyPath: m_SortingOrder
-      value: 24
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7504232476683092189, guid: 9def0ef8a0213e248a56735249dbcd91, type: 3}
       propertyPath: _chargeBar
@@ -11029,7 +11038,7 @@ PrefabInstance:
       objectReference: {fileID: 2180264, guid: 4cb55ab3f5bc4324ea075ef08f0e003a, type: 2}
     - target: {fileID: 7186692071270706529, guid: 46017eaa34e9c964096d48f8ab249944, type: 3}
       propertyPath: m_HorizontalAlignment
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7186692071270706529, guid: 46017eaa34e9c964096d48f8ab249944, type: 3}
       propertyPath: m_hasFontAssetChanged

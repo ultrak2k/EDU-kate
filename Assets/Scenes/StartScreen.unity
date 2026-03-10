@@ -3263,6 +3263,11 @@ MonoBehaviour:
   KateHerself: {fileID: 7072566317695841428}
   KatHologramEffect: {fileID: 948733465}
   typewriterSpeed: 0.03
+  EndKateDialogue: 0
+  Edu: {fileID: 0}
+  DialogueAudioClip: {fileID: 0}
+  KateHologramStart: {fileID: 0}
+  KateHologramEnd: {fileID: 0}
 --- !u!1 &789570703
 GameObject:
   m_ObjectHideFlags: 0
@@ -4609,6 +4614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498709602a10b5e40854afde560f0d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneSwitcher
+  SceneToLoad: EverythingTest
+  AudioClipToPlay: {fileID: 8300000, guid: a55d737c36fc66d469a06f78f3cc989e, type: 3}
 --- !u!4 &1164751907
 Transform:
   m_ObjectHideFlags: 0
@@ -5113,6 +5120,161 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1147588811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1258478176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1258478178}
+  - component: {fileID: 1258478177}
+  - component: {fileID: 1258478179}
+  - component: {fileID: 1258478180}
+  m_Layer: 0
+  m_Name: DoNotDestroy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1258478177
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258478176}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 0c10902aa97b1914e95d5595a0a56f13, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.503
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1258478178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258478176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.81353, y: -1.02114, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1258478179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258478176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13a776e653048e4fb3c9c0a4c0a855b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DontDestroy
+--- !u!114 &1258478180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258478176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d19e30fc804ba94d88a4fabed0fed90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioPlayer
 --- !u!1 &1274145901
 GameObject:
   m_ObjectHideFlags: 0
@@ -5145,6 +5307,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   DialogueEvent: {fileID: 2145614390}
   _levelToSpawn: {fileID: 4185318253025395778, guid: a2a3580b7733dc044a29fd89a026c4ee, type: 3}
+  FakeLevelShift: 0
+  SceneToLoad: SecondLevel
 --- !u!61 &1274145903
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7528,6 +7692,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   DialogueEvent: {fileID: 777843717}
   _levelToSpawn: {fileID: 4185318253025395778, guid: a2a3580b7733dc044a29fd89a026c4ee, type: 3}
+  FakeLevelShift: 0
+  SceneToLoad: SecondLevel
 --- !u!61 &1591964787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9831,6 +9997,11 @@ MonoBehaviour:
   KateHerself: {fileID: 7072566317695841428}
   KatHologramEffect: {fileID: 948733465}
   typewriterSpeed: 0.03
+  EndKateDialogue: 0
+  Edu: {fileID: 0}
+  DialogueAudioClip: {fileID: 0}
+  KateHologramStart: {fileID: 0}
+  KateHologramEnd: {fileID: 0}
 --- !u!4 &2145614391
 Transform:
   m_ObjectHideFlags: 0
@@ -10248,3 +10419,4 @@ SceneRoots:
   - {fileID: 1591964788}
   - {fileID: 1274145904}
   - {fileID: 1164751907}
+  - {fileID: 1258478178}

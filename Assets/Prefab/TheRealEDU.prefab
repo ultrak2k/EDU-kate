@@ -163,6 +163,9 @@ MonoBehaviour:
   dashDuration: 0.15
   dashCooldown: 0.6
   coyoteTime: 0.12
+  jumpSFX: {fileID: 8300000, guid: 6eeee08f67c9b5c4b9e12066fd3ea45b, type: 3}
+  dashSFX: {fileID: 8300000, guid: 35c58deec8b777845be851485c17d4f1, type: 3}
+  parrySFX: {fileID: 8300000, guid: 6973549798f9f4d42bdb4babc213d241, type: 3}
   hasParried: 0
   OldGrav: 3
   playerCollider: {fileID: 3556033600310487183}

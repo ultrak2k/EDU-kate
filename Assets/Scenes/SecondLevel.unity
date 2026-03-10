@@ -3009,6 +3009,9 @@ MonoBehaviour:
   typewriterSpeed: 0.03
   EndKateDialogue: 0
   Edu: {fileID: 0}
+  DialogueAudioClip: {fileID: 0}
+  KateHologramStart: {fileID: 0}
+  KateHologramEnd: {fileID: 0}
 --- !u!1 &789570703
 GameObject:
   m_ObjectHideFlags: 0
@@ -9087,6 +9090,9 @@ MonoBehaviour:
   typewriterSpeed: 0.03
   EndKateDialogue: 0
   Edu: {fileID: 0}
+  DialogueAudioClip: {fileID: 8300000, guid: a175f8ad87ab5434d87c8927926c5b98, type: 3}
+  KateHologramStart: {fileID: 8300000, guid: 993d047a5b0626d4ab49a442833b61c3, type: 3}
+  KateHologramEnd: {fileID: 8300000, guid: dc08e28317c927d49a4f356f308eb349, type: 3}
 --- !u!4 &2145614391
 Transform:
   m_ObjectHideFlags: 0
@@ -9517,7 +9523,7 @@ PrefabInstance:
       objectReference: {fileID: 2180264, guid: 4cb55ab3f5bc4324ea075ef08f0e003a, type: 2}
     - target: {fileID: 7186692071270706529, guid: 46017eaa34e9c964096d48f8ab249944, type: 3}
       propertyPath: m_HorizontalAlignment
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7186692071270706529, guid: 46017eaa34e9c964096d48f8ab249944, type: 3}
       propertyPath: m_hasFontAssetChanged

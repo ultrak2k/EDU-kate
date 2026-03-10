@@ -2373,6 +2373,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level2Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 770165611345185396, guid: 4c80b92521be5414b85fa506bb4f81e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5912792104034889749, guid: 4c80b92521be5414b85fa506bb4f81e6, type: 3}
       propertyPath: _stopDistance
       value: 2
@@ -10350,7 +10354,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1673919993250534047, guid: bc30c6c61ee1fbe438f8f1181253badd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.02187
+      value: -41.6
       objectReference: {fileID: 0}
     - target: {fileID: 1673919993250534047, guid: bc30c6c61ee1fbe438f8f1181253badd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10394,7 +10398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8937434833970806237, guid: bc30c6c61ee1fbe438f8f1181253badd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

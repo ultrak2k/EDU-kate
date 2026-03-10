@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
     public float coyoteTime = 0.12f;        // seconds after leaving ground you can still jump
     private float coyoteTimeCounter;
 
+    [Header("AudioClips")]
+    public AudioClip jumpSFX;
+    public AudioClip dashSFX;
+    public AudioClip parrySFX;
+
     private Rigidbody2D rb;
     private bool isGrounded;
     public bool hasParried;          // used up parry this airtime?
@@ -170,6 +175,7 @@ public class PlayerController : MonoBehaviour
         if (canJump)
         {
             coyoteTimeCounter = 0f;
+            AudioPlayer.Instance.PlayAudio(jumpSFX);
             Jump();
         }
         else if (!hasParried && !isParrying)
@@ -246,7 +252,7 @@ public class PlayerController : MonoBehaviour
 
         rb.gravityScale = 0f;
         rb.linearVelocity = new Vector2(direction * dashForce, 0f);
-
+        AudioPlayer.Instance.PlayAudio(dashSFX);
         OnDash.Invoke();
 
         yield return new WaitForSeconds(dashDuration);

@@ -4,8 +4,10 @@ using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
 {
     public string SceneToLoad = "EverythingTest";
+    public AudioClip AudioClipToPlay;
     public void GoToEverythingTest()
     {
+        AudioPlayer.Instance.PlayAudio(AudioClipToPlay);
         SceneManager.LoadScene(SceneToLoad);
     }
 

@@ -53,6 +53,10 @@ public class DialogueManager : MonoBehaviour
 
     public bool EndKateDialogue = false;
     public GameObject Edu;
+    public AudioClip DialogueAudioClip;
+    public AudioClip KateHologramStart;
+    public AudioClip KateHologramEnd;
+    private bool firstKatSpeech = true;
 
 
 
@@ -67,6 +71,8 @@ public class DialogueManager : MonoBehaviour
         if(EndKateDialogue)
         {
             Edu.GetComponent<PlayerController>().enabled = false;
+            Edu.GetComponent<PlayerInput>().enabled = false;
+            Edu.GetComponentInChildren<Animator>().enabled = false;
             Edu.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // stop any movement
         }
 
@@ -79,7 +85,10 @@ public class DialogueManager : MonoBehaviour
     private void Update()
     {
         if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            AudioPlayer.Instance.PlayAudio(DialogueAudioClip);
             OnAdvance();
+        }    
 
         /*if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
             OnAdvance();*/ // removing left click cuz its clunky
@@ -152,8 +161,14 @@ public class DialogueManager : MonoBehaviour
                 if (EDUSprite != null)
                 {
                     EDUSprite.SetActive(true);
-                    KateHerself.enabled = true;
-                    KatHologramEffect.SetActive(true);
+                    if (firstKatSpeech)
+                    {
+                        firstKatSpeech = false;
+                        AudioPlayer.Instance.PlayAudio(KateHologramStart);
+                        KateHerself.enabled = true;
+                        KatHologramEffect.SetActive(true);
+                    }
+                    
                 }
                 break;
 
@@ -161,9 +176,15 @@ public class DialogueManager : MonoBehaviour
             case Speaker.Kate:
                 if (KateSprite != null)
                 {
-                    KateHerself.enabled = true;
+                    
                     KateSprite.SetActive(true);
-                    KatHologramEffect.SetActive(true);
+                    if (firstKatSpeech)
+                    {
+                        firstKatSpeech = false;
+                        AudioPlayer.Instance.PlayAudio(KateHologramStart);
+                        KateHerself.enabled = true;
+                        KatHologramEffect.SetActive(true);
+                    }
 
 
 
@@ -197,12 +218,21 @@ public class DialogueManager : MonoBehaviour
         if (EndKateDialogue)
         {
             Edu.GetComponent<PlayerController>().enabled = true;
+            Edu.GetComponentInChildren<Animator>().enabled = true;
+            Edu.GetComponent<PlayerInput>().enabled = true;
+
         }
         dialoguePanel.SetActive(false);
         dialogueBodyTextObject.SetActive(false);
         //NextSceneButton.SetActive(true);
         KateHerself.enabled = false;
         KatHologramEffect.SetActive(false);
+        if(!EndKateDialogue)
+        {
+
+            AudioPlayer.Instance.PlayAudio(KateHologramEnd);
+        }
+        
         SetAllSpritesInactive();
 
         

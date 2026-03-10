@@ -72,6 +72,7 @@ public class ParryDetector : MonoBehaviour
             if (hit == parryCollider || hit == playerCollider) continue;
 
             // Valid parry hit apply bounce and end the parry window immediately
+            AudioPlayer.Instance.PlayAudio(_pc.parrySFX);
             ApplyMiniJump();
             _pc.hasParried = false; //allow for chain parries on sucessfull parry.
             _pc.InvokeParry();
