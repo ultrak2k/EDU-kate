@@ -19,7 +19,7 @@ public class Parallax : MonoBehaviour
     private Camera _camera;
     private int _furthestLayer = 0;
 
-    public int OffsetInt;
+    public float OffsetFloat = 2.7f;
     
 
 
@@ -84,7 +84,7 @@ public class Parallax : MonoBehaviour
             {
                 float newX = layer.transform.position.x + layer.size.x / 2;
                 biggestX = biggestX < newX ? newX : biggestX;
-                biggestY = layer.transform.position.y - ((layer.size.y / 2) + OffsetInt);
+                biggestY = layer.transform.position.y - ((layer.size.y / 2) + OffsetFloat);
             }
         }
         return new (biggestX, biggestY, 0);

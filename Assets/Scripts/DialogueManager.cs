@@ -45,7 +45,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject KateSprite;
     public GameObject NarSprite;
 
-    public GameObject KateHerself;
+    public SpriteRenderer KateHerself;
+    public GameObject KatHologramEffect;
 
     public float typewriterSpeed = 0.03f;
 
@@ -151,8 +152,11 @@ public class DialogueManager : MonoBehaviour
             case Speaker.Kate:
                 if (KateSprite != null)
                 {
+                    KateHerself.enabled = true;
                     KateSprite.SetActive(true);
-                    KateHerself.SetActive(true);
+                    KatHologramEffect.SetActive(true);
+
+
                 }
                 break;
             case Speaker.Narrator:
@@ -181,7 +185,8 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueBodyTextObject.SetActive(false);
         //NextSceneButton.SetActive(true);
-        KateHerself.SetActive(false);
+        KateHerself.enabled = false;
+        KatHologramEffect.SetActive(false);
         SetAllSpritesInactive();
 
         

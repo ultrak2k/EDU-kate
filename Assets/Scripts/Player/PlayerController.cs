@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     private float verticalMoveInput;
     private bool jumpQueued;
 
+    public float OldGrav;
+
     [SerializeField]
     private Collider2D playerCollider;
 
@@ -150,7 +152,7 @@ public class PlayerController : MonoBehaviour
         if (!jumpQueued) return;
         jumpQueued = false;     // consume the input 
 
-        bool holdingDown = verticalMoveInput < -0.5f;
+        bool holdingDown = verticalMoveInput < 0f;
         Debug.Log($"isGrounded={isGrounded}  verticalInput={verticalMoveInput}  holdingDown={holdingDown}");
         if (isGrounded && holdingDown)
         {
@@ -220,7 +222,7 @@ public class PlayerController : MonoBehaviour
         transform.eulerAngles = new Vector3(0f, 0f, startAngle + targetRotation);
 
         // become god and reapply gravity
-        rb.gravityScale = 1.1f;
+        rb.gravityScale = OldGrav;
         GetComponent<ParryDetector>()?.SetParryActive(false);
         isParrying = false;
     }
@@ -244,7 +246,7 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(dashDuration);
 
-        rb.gravityScale = 1f;
+        rb.gravityScale = OldGrav;
         // Bleed off horizontal speed so it doesn't feel goofy aah after the dash
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         isDashing = false;
@@ -260,7 +262,7 @@ public class PlayerController : MonoBehaviour
         foreach (Collider2D platform in platforms)
             Physics2D.IgnoreCollision(playerCollider, platform, true);
 
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, -2f);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, -5f);
 
         yield return new WaitForSeconds(0.3f);
 

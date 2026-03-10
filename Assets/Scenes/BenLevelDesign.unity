@@ -2153,7 +2153,7 @@ MonoBehaviour:
   _loopBackgroundCount: 3
   _xMultiplier: 1
   _yMultiplier: 1
-  OffsetInt: 0
+  OffsetFloat: 2.7
 --- !u!1 &553281793
 GameObject:
   m_ObjectHideFlags: 0
@@ -2496,6 +2496,7 @@ MonoBehaviour:
   dashCooldown: 0.6
   coyoteTime: 0.12
   hasParried: 0
+  OldGrav: 0
   playerCollider: {fileID: 501292825}
 --- !u!50 &585621183
 Rigidbody2D:
@@ -2591,6 +2592,8 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 1451259278}
   _animator: {fileID: 1451259279}
   iFrameCycleTime: 0.1
+  _playerController: {fileID: 0}
+  _playerAttack: {fileID: 0}
 --- !u!114 &585621187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2631,6 +2634,11 @@ MonoBehaviour:
   _charge: 0
   _maxCharge: 10
   _parryRechargeAmount: 2
+  _meleeTrigger: {fileID: 0}
+  _meleeStartTime: 5
+  _meleeDamagingTime: 5
+  _chargeUse: 1
+  _maxScale: 1
 --- !u!61 &585621189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3577,6 +3585,7 @@ MonoBehaviour:
   KateSprite: {fileID: 99533376}
   NarSprite: {fileID: 0}
   KateHerself: {fileID: 0}
+  KatHologramEffect: {fileID: 0}
   typewriterSpeed: 0.03
 --- !u!1 &789570703
 GameObject:
@@ -5082,6 +5091,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 642982293294832760, guid: dd183feead01acf4a8bcb3b181c86ee7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2547163056914614903, guid: dd183feead01acf4a8bcb3b181c86ee7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.84
@@ -5122,6 +5135,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4443437604037969397, guid: dd183feead01acf4a8bcb3b181c86ee7, type: 3}
+      propertyPath: miniJumpMultiplier
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923284456212984983, guid: dd183feead01acf4a8bcb3b181c86ee7, type: 3}
+      propertyPath: m_Mass
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923284456212984983, guid: dd183feead01acf4a8bcb3b181c86ee7, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7306753186859883471, guid: dd183feead01acf4a8bcb3b181c86ee7, type: 3}
       propertyPath: m_Name
       value: edu (1)
@@ -5129,6 +5154,14 @@ PrefabInstance:
     - target: {fileID: 7306753186859883471, guid: dd183feead01acf4a8bcb3b181c86ee7, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936600614059271819, guid: dd183feead01acf4a8bcb3b181c86ee7, type: 3}
+      propertyPath: OldGrav
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936600614059271819, guid: dd183feead01acf4a8bcb3b181c86ee7, type: 3}
+      propertyPath: jumpForce
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5319,7 +5352,7 @@ Transform:
   m_GameObject: {fileID: 1136206486}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.04, y: -2.57, z: 0}
+  m_LocalPosition: {x: -4.1, y: -2.57, z: 0}
   m_LocalScale: {x: 0.21000001, y: 0.21000001, z: 0.21000001}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -5419,10 +5452,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WolfEnemy
   _health: 10
-  _aggroRange: 11.1
-  _morphRange: 3.09
-  _moveSpeed: 4.78
-  _stopDistance: 0.5
+  _aggroRange: 12.88
+  _morphRange: 2
+  _moveSpeed: 6
+  _stopDistance: 0.1
   _orbLifetime: 2
   _explosionRadius: 2.5
   _explosionDamage: 2
@@ -10354,7 +10387,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4185318253025395778, guid: a2a3580b7733dc044a29fd89a026c4ee, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760440091615126662, guid: a2a3580b7733dc044a29fd89a026c4ee, type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760440091615126662, guid: a2a3580b7733dc044a29fd89a026c4ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
